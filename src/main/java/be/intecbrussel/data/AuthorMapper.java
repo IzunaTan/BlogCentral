@@ -31,6 +31,7 @@ public class AuthorMapper {
         transaction.begin();
         Author dbAuthor = em.find(Author.class, author.getUsername());
         dbAuthor.cloneFrom(author);
+        em.merge(dbAuthor);
         transaction.commit();
 
         em.close();

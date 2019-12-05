@@ -10,7 +10,7 @@ public class BlogMapper {
         EntityManager em = EntityManagerFactoryProvider.getEM();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        em.persist(blog);
+        em.merge(blog);
         tx.commit();
         em.close();
     }
@@ -31,6 +31,7 @@ public class BlogMapper {
         transaction.begin();
         Blog dbBlog = em.find(Blog.class, blog.getId());
         dbBlog.cloneFrom(blog);
+        em.merge(dbBlog);
         transaction.commit();
 
         em.close();

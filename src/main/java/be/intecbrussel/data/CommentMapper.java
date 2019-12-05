@@ -31,6 +31,7 @@ public class CommentMapper {
         transaction.begin();
         Comment dbComment = em.find(Comment.class, comment.getId());
         dbComment.cloneFrom(comment);
+        em.merge(dbComment);
         transaction.commit();
 
         em.close();
