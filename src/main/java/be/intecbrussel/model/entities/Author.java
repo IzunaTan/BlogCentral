@@ -6,10 +6,6 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Author {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(unique = true)
-    @NotNull
     private String username;
     @NotNull
     private String password;
@@ -34,6 +30,22 @@ public class Author {
         this.houseNumber = houseNumber;
         this.city = city;
         this.zipCode = zipCode;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void cloneFrom(Author author){
+        this.username = author.username;
+        this.password = author.password;
+        this.firstName = author.firstName;
+        this.lastName = author.lastName;
+        this.email = author.email;
+        this.street = author.street;
+        this.houseNumber = author.houseNumber;
+        this.city = author.city;
+        this.zipCode = author.zipCode;
     }
 
     private void editProfile(){
