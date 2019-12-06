@@ -28,5 +28,7 @@ public class Main {
 
         bm.editBlog(blog);
 
+        bm.deleteBlog(blog);
+
     }
 }
