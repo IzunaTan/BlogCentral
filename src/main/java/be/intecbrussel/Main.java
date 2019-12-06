@@ -12,6 +12,7 @@ import javax.persistence.EntityTransaction;
 
 public class Main {
     public static void main(String[] args) {
+        //TODO: OLIVIER
         Author aris = new Author("momo", "mo", "mo", "superpaws", "momo@nono.toto", "momolenbeek", 22, "millecinquante", 1050);
         Blog blog = new Blog(aris, "Soyez bon, la jeunesse");
         Comment comment = new Comment(aris, "Personne ne m'aime :(");

@@ -10,7 +10,7 @@ public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @NotNull
     private Author author;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
