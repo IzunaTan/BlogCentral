@@ -1,0 +1,77 @@
+body {
+    margin: 0%;
+    font-family: 'McLaren', 'Yeon Sung', 'Open Sans', sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-column: 1/3;
+}
+
+a {
+    text-decoration: none;
+    color: #222222;
+    font-size: 1.3em;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: rgba(255, 255, 255, .6);
+}
+
+.flex,
+.row {
+    display: flex;
+
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.flex,
+.row>div {
+    height: 150px;
+    padding: 15x;
+    border-radius: 5%;
+}
+
+.col {
+    flex: 1;
+    background: #e3e3e3;
+    padding: 10px;
+    margin: 10px;
+    height: 200px;
+}
+
+.box {
+    background: #e3e3e3;
+    min-height: max-content;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section {
+    padding: 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.like {
+    font-size: 16px;
+    float: right;
+}
+
+@media screen and (max-width: 750px) {
+
+    .row,
+    .row {
+        width: 100%;
+        flex-direction: column;
+        /* The width becomes 100% when screensize is 750px or less*/
+    }
+}
