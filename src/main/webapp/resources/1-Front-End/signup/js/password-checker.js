@@ -9,5 +9,6 @@ function validatePassword() {
     }
 }
 
+alert('shit doesnt works');
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;

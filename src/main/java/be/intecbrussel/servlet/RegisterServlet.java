@@ -42,11 +42,10 @@ public class RegisterServlet extends HttpServlet {
         String city = req.getParameter("city");
         Integer zipcode = Integer.parseInt(req.getParameter("zip"));
         String password = req.getParameter("password");
-        String password2 = req.getParameter("retype-password");
         Author momo = new Author(userName, password, firstName, lastName, email, street, houseNr, city, zipcode);
 
         GenericMapper<Author> dao = new GenericMapper<>();
-        dao.addObject(momo);
+        momo = dao.addObject(momo);
 
         session.setAttribute("isLoggedIn", true);
         session.setAttribute("author", momo);

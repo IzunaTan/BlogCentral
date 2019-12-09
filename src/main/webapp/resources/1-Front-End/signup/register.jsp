@@ -50,7 +50,7 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
-                <input class="input100" type="password" name="password" placeholder="Password" pattern=".{8,}" required
+                <input class="input100" id="password" type="password" name="password" placeholder="Password" pattern=".{8,}" required
                     title="8 characters minimum">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
@@ -59,7 +59,7 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
-                <input class="input100" type="password" name="retype-password" placeholder="Retype Password" required>
+                <input class="input100" id="confirm_password" type="password" name="retype-password" placeholder="Retype Password" required>
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
@@ -132,6 +132,8 @@
         </form>
 
     </div>
+    <script type="text/javascript" src="resources/1-Front-End/signup/js/password-checker.js"></script>
+
 </body>
 
 </html>
