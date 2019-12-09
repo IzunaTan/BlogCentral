@@ -26,7 +26,7 @@
             </span>
 
             <div class="wrap-input100 validate-input" data-validate="name is required">
-                <input class="input100" type="text" name="first-name" placeholder="First Name" required>
+                <input class="input100" id="firstname" type="text" name="first-name" placeholder="First Name" required>
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
@@ -34,7 +34,7 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Last is required">
-                <input class="input100" type="text" name="last-name" placeholder="Last Name" required>
+                <input class="input100" id="lastname" type="text" name="last-name" placeholder="Last Name" required>
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
@@ -42,7 +42,7 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="user-name is required" aria-required="user-name">
-                <input class="input100" type="text" name="user-name" placeholder="User Name" required>
+                <input class="input100" id="username" type="text" name="user-name" placeholder="User Name" required>
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
@@ -50,8 +50,8 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
-                <input class="input100" id="password" type="password" name="password" placeholder="Password" pattern=".{8,}" required
-                    title="8 characters minimum">
+                <input class="input100" id="password" type="password" name="password" placeholder="Password"
+                    pattern=".{8,}" required title="8 characters minimum">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
@@ -59,7 +59,8 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
-                <input class="input100" id="confirm_password" type="password" name="retype-password" placeholder="Retype Password" required>
+                <input class="input100" id="confirm_password" type="password" name="retype-password"
+                    placeholder="Retype Password" required>
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
@@ -67,7 +68,7 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                <input class="input100" type="email" name="email" placeholder="Email" required>
+                <input class="input100" id="email" type="email" name="email" placeholder="Email" required>
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
@@ -109,7 +110,8 @@
 
             <div class="attributes">
                 <div class="container-login100-form-btn">
-                    <input type="submit" onclick="removeChars()" value="Send" title="we did it reddit" class="login100-form-btn">
+                    <input type="submit" onclick="removeChars()" value="Send" title="we did it reddit"
+                        class="login100-form-btn">
                 </div>
 
                 <div class="utility">
