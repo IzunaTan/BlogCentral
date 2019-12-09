@@ -1,14 +1,9 @@
 package be.intecbrussel;
 
-import be.intecbrussel.data.AuthorMapper;
-import be.intecbrussel.data.BlogMapper;
-import be.intecbrussel.data.EntityManagerFactoryProvider;
+import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.model.entities.Blog;
 import be.intecbrussel.model.entities.Comment;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,17 +13,14 @@ public class Main {
 
         blog.addComment(comment);
 
-        BlogMapper bm = new BlogMapper();
+        GenericMapper<Blog> bm = new GenericMapper<>();
 
-        bm.addNewBlog(blog);
-
-        blog = bm.getBlog(1);
+        blog = bm.addObject(blog);
 
         blog.getAuthor().setEmail("MY MAIL");
 
-        bm.editBlog(blog);
+        bm.editObject(blog);
 
-        bm.deleteBlog(blog);
-
+        System.out.println(bm.getObject(new Blog(), 1));
     }
 }

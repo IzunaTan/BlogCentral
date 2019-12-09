@@ -52,7 +52,7 @@ public class GenericMapper<T> {
         EntityTransaction transaction = em.getTransaction();
 
         transaction.begin();
-        T dbObj = (T) em.find(objTemplate.getClass(), id.toString());
+        T dbObj = (T) em.find(objTemplate.getClass(), id);
         transaction.commit();
 
         em.close();

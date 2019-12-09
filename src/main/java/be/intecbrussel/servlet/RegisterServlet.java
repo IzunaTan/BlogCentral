@@ -1,10 +1,7 @@
 package be.intecbrussel.servlet;
 
-import be.intecbrussel.data.BlogMapper;
 import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.model.entities.Author;
-import be.intecbrussel.model.entities.Blog;
-import be.intecbrussel.model.entities.Comment;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
