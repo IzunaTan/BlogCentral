@@ -16,7 +16,7 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("")
+        req.getRequestDispatcher("WEB-INF/1-Front-End/signup/register.jsp").forward(req,resp);
     }
 
     @Override
