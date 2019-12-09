@@ -19,7 +19,9 @@ public class BlogMapper {
         EntityManager em = EntityManagerFactoryProvider.getEM();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
+/*
         em.remove(blog);
+*/
         tx.commit();
         em.close();
     }
