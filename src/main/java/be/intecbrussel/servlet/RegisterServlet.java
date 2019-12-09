@@ -30,6 +30,15 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().println("Shits on very big fire yo");
+        String firstName;
+        String lastName;
+        String userName;
+        String email;
+        String street;
+        String houseNr;
+        String city;
+        String zipcode;
+        String password;
+        String password2;
     }
 }
