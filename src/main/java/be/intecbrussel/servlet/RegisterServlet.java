@@ -1,6 +1,7 @@
 package be.intecbrussel.servlet;
 
 import be.intecbrussel.data.BlogMapper;
+import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.model.entities.Blog;
 import be.intecbrussel.model.entities.Comment;
@@ -30,6 +31,8 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+
         String firstName = req.getParameter("first-name");
         String lastName = req.getParameter("last-name");
         String userName = req.getParameter("user-name");
@@ -41,6 +44,12 @@ public class RegisterServlet extends HttpServlet {
         String password = req.getParameter("password");
         String password2 = req.getParameter("retype-password");
         Author momo = new Author(userName, password, firstName, lastName, email, street, houseNr, city, zipcode);
-        System.out.println(momo);
+
+        GenericMapper<Author> dao = new GenericMapper<>();
+        dao.addObject(momo);
+
+        session.setAttribute("isLoggedIn", true);
+        session.setAttribute("author", momo);
+        resp.sendRedirect("home");
     }
 }
