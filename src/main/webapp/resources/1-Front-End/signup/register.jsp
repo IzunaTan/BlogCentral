@@ -8,14 +8,14 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="/WEB-INF/1-Front-End/home/css/normalize.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/home/css/normalize.css" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="/WEB-INF/1-Front-End/login/css/style.css" />
-    <link rel="stylesheet" href="/WEB-INF/1-Front-End/home/css/utils.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/login/css/style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/home/css/utils.css" />
     <title>Register</title>
 </head>
 
-<a href="/WEB-INF/index.html" title="Back Home"><i class="fa fa-home fa-lg"></i></a>
+<a href="/resources/1-Front-End/index.html" title="Back Home"><i class="fa fa-home fa-lg"></i></a>
 
 <body>
 
@@ -76,13 +76,13 @@
                     <span class="txt1">
                         Forgot
                     </span>
-                    <a class="txt2" href="/WEB-INF/login/recovery.html">
+                    <a class="txt2" href="${pageContext.request.contextPath}/resources/1-Front-End/login/recovery.html">
                         Username / Password?
                     </a>
                 </div>
 
                 <div class="create text-center p-t-136">
-                    <a class="txt2" href="/WEB-INF/login/login.html">Login
+                    <a class="txt2" href="${pageContext.request.contextPath}/resources/1-Front-End/login/login.html">Login
                         <i class="fa fa-sign-in" aria-hidden="true"></i>
                     </a>
                 </div>
