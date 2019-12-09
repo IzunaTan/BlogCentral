@@ -15,11 +15,10 @@ function validatePassword(){
 }
 
 var removeChars = () => {
-  validatePassword();
-  if (!isValid){
+
     confirm_password.value = "";
     password.value = "";
-  }
+
 }
 
 password.onchange = validatePassword;

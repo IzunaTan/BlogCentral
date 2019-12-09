@@ -109,7 +109,7 @@
 
             <div class="attributes">
                 <div class="container-login100-form-btn">
-                    <input type="submit" value="Send" title="we did it reddit" class="login100-form-btn">
+                    <input type="submit" onclick="removeChars()" value="Send" title="we did it reddit" class="login100-form-btn">
                 </div>
 
                 <div class="utility">
