@@ -19,6 +19,9 @@ public class BlogMapper {
         EntityManager em = EntityManagerFactoryProvider.getEM();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
+        // blog not in pc
+        blog = em.find(Blog.class, blog.getId());
+        // blog in pc
         em.remove(blog);
         tx.commit();
         em.close();
