@@ -30,15 +30,17 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String firstName;
-        String lastName;
-        String userName;
-        String email;
-        String street;
-        String houseNr;
-        String city;
-        String zipcode;
-        String password;
-        String password2;
+        String firstName = req.getParameter("first-name");
+        String lastName = req.getParameter("last-name");
+        String userName = req.getParameter("user-name");
+        String email = req.getParameter("email");
+        String street = req.getParameter("street");
+        Integer houseNr = Integer.parseInt(req.getParameter("house-number"));
+        String city = req.getParameter("city");
+        Integer zipcode = Integer.parseInt(req.getParameter("zip"));
+        String password = req.getParameter("password");
+        String password2 = req.getParameter("retype-password");
+        Author momo = new Author(userName, password, firstName, lastName, email, street, houseNr, city, zipcode);
+        System.out.println(momo);
     }
 }

@@ -99,7 +99,7 @@
             </div>
 
             <div class="wrap-input100 validate-input">
-                <input class="input100" type="password" name="zip" placeholder="Zip Code">
+                <input class="input100" type="text" name="zip" placeholder="Zip Code">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
