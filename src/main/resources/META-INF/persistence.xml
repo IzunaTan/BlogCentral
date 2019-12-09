@@ -5,9 +5,9 @@
     <persistence-unit name="datasourceLocal">
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/blogcentral?serverTimezone=UTC"/>
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.30.67:3306/blogcentral?serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.user" value="intecpotato"/>
+            <property name="javax.persistence.jdbc.password" value="grp"/>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
