@@ -35,17 +35,26 @@ public class RegisterServlet extends HttpServlet {
         String userName = req.getParameter("user-name");
         String email = req.getParameter("email");
         String street = req.getParameter("street");
-        Integer houseNr = Integer.parseInt(req.getParameter("house-number"));
+        String houseNr = req.getParameter("house-number");
         String city = req.getParameter("city");
-        Integer zipcode = Integer.parseInt(req.getParameter("zip"));
+        String zipcode = req.getParameter("zip");
         String password = req.getParameter("password");
-        Author momo = new Author(userName, password, firstName, lastName, email, street, houseNr, city, zipcode);
+
+        Author author = new Author(userName, password, firstName, lastName, email);
+        if (!street.equals(""))
+            author.setStreet(street);
+        if (!houseNr.equals(""))
+            author.setHouseNumber(Integer.parseInt(houseNr));
+        if (!city.equals(""))
+            author.setCity(city);
+        if (!zipcode.equals(""))
+            author.setZipCode(Integer.parseInt(zipcode));
 
         GenericMapper<Author> dao = new GenericMapper<>();
-        momo = dao.addObject(momo);
+        author = dao.addObject(author);
 
         session.setAttribute("isLoggedIn", true);
-        session.setAttribute("author", momo);
+        session.setAttribute("author", author);
         resp.sendRedirect("home");
     }
 }

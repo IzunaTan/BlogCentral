@@ -32,6 +32,14 @@ public class Author {
         this.zipCode = zipCode;
     }
 
+    public Author(String username, @NotNull String password, @NotNull String firstName, @NotNull String lastName, @NotNull String email) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
     public Author setUsername(String username) {
         this.username = username;
         return this;
