@@ -49,6 +49,7 @@ public class RegisterServlet extends HttpServlet {
         dao.addObject(momo);
 
         session.setAttribute("isLoggedIn", true);
+        session.setAttribute("author", momo);
         resp.sendRedirect("home");
     }
 }
