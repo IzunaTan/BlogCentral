@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSessionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO testing this thing in one way or another
+// TODO learn about session TTL
 public class SessionListener implements HttpSessionListener {
     private static List<HttpSession> sessionList = new ArrayList<>();
 
