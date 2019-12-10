@@ -19,4 +19,10 @@ We hebben de link gedefinieerd als href = "$ {pageContext.requestContextPath} / 
 Uiteindelijk hebben we onze registerservlet met succes getest.<br>
 We hebben besloten om individueel te studeren voor andere servlets.<br>
 
+<h3> 10/12 </h3>
+<hr>
+We hebben over servlets van het project gepraten.<br>
+'update' en 'login' servlets zijn de volgende taken.<br>
+We hebben besloten te werken thuis over login servlet.<br>
+Nieuwe bestand heeft gezet worden voor het gebruik van github in de planning map.<br>
 
