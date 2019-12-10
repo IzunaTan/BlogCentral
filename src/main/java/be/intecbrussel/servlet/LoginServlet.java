@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-package be.intecbrussel.servlet;
-
-public class LoginServlet {
-    // TODO ulas does everything
-}
-=======
 package be.intecbrussel.servlet;
 
 import javax.servlet.ServletException;
@@ -30,4 +23,4 @@ public class LoginServlet extends HttpServlet {
 
     }
 }
->>>>>>> fa347cab4ca8cbed0ef5d64e881fe2a3dc10a38c
+
