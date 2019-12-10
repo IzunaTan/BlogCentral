@@ -77,6 +77,7 @@ public class Comment {
         return likeCount;
     }
 
+    // Copies all the attributes from an comment object to this comment object
     public void cloneFrom(Comment comment) {
         this.author = comment.author;
         this.message = comment.message;

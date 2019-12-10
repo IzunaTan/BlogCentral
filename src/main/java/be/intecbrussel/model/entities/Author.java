@@ -125,6 +125,7 @@ public class Author {
         return username;
     }
 
+    // Copies all the attributes from an author object to this author object
     public void cloneFrom(Author author){
         this.username = author.username;
         this.password = author.password;

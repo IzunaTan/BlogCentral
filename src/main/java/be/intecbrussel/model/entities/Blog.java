@@ -97,6 +97,7 @@ public class Blog {
 
     }
 
+    // Copies all the attributes from an blog object to this blog object
     public void cloneFrom(Blog blog) {
         this.author = blog.author;
         this.comments = blog.comments;
