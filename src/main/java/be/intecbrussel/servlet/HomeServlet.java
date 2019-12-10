@@ -12,14 +12,19 @@ import java.io.IOException;
 public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // Get the user's session
         HttpSession session = req.getSession();
+        // Get whether the user is coming from a login or register page while being already logged in
         Boolean triedIllegalRegisterOrLoginAttempt = (Boolean) session.getAttribute("triedIllegalRegisterOrLoginAttempt");
 
+        // If the user tried to go to the login or register page while already being logged in, display an alert box
+        // saying the user is already logged in, and set the attribute to false
         if(!(triedIllegalRegisterOrLoginAttempt == null) && triedIllegalRegisterOrLoginAttempt) {
             resp.getWriter().println("<script> alert('You are already logged in') </script>");
             req.setAttribute("triedIllegalRegisterOrLoginAttempt", false);
         }
 
+        // Shit's on fire yo
         resp.getWriter().println("Shits on fire yo bro");
     }
 }
