@@ -57,4 +57,5 @@ public class RegisterServlet extends HttpServlet {
         session.setAttribute("author", author);
         resp.sendRedirect("home");
     }
+
 }

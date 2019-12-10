@@ -19,7 +19,7 @@ public class SessionListener implements HttpSessionListener {
         sessionList.remove(se.getSession());
     }
 
-    public int amountOfActiveSessions(){
+    public static int amountOfActiveSessions(){
         return sessionList.size();
     }
 }

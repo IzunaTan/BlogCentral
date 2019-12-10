@@ -14,6 +14,7 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Boolean triedIllegalRegisterOrLoginAttempt = (Boolean) session.getAttribute("triedIllegalRegisterOrLoginAttempt");
+
         if(!(triedIllegalRegisterOrLoginAttempt == null) && triedIllegalRegisterOrLoginAttempt) {
             resp.getWriter().println("<script> alert('You are already logged in') </script>");
             req.setAttribute("triedIllegalRegisterOrLoginAttempt", false);
