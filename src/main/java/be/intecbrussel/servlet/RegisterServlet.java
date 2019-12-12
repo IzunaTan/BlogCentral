@@ -2,6 +2,7 @@ package be.intecbrussel.servlet;
 
 import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.model.entities.Author;
+import be.intecbrussel.tools.BCrypter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-
+`
 @WebServlet(value = "/register")
 public class RegisterServlet extends HttpServlet {
     @Override
@@ -44,7 +45,9 @@ public class RegisterServlet extends HttpServlet {
         String houseNr = req.getParameter("house-number");
         String city = req.getParameter("city");
         String zipcode = req.getParameter("zip");
-        String password = req.getParameter("password");
+        // Instead of storing the password in plain text, we hash it with a powerful algorithm
+        String password = BCrypter.hashPassword(req.getParameter("password"));
+
 
         // Create an new Author using a constructor with all the required fields
         Author author = new Author(userName, password, firstName, lastName, email);
