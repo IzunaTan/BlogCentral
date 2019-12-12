@@ -10,8 +10,8 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/home/css/normalize.css" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/css/style.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/css/utils.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/login/css/style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/login/css/utils.css" />
     <title>Login</title>
 </head>
 
@@ -20,13 +20,13 @@
 <body>
 
     <div class="container">
-        <form class="login100-form validate-form">
+        <form class="login100-form validate-form" action="login" method="post">
             <span class="login100-form-title">
                 Member Login
             </span>
 
-            <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                <input class="input100" type="email" name="email" placeholder="Email">
+            <div class="wrap-input100 validate-input" data-validate="Please enter username">
+                <input class="input100" type="text" name="username" placeholder="Username">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
@@ -34,7 +34,7 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
-                <input class="input100" type="password" name="pass" placeholder="Password">
+                <input class="input100" type="password" name="password" placeholder="Password">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
                     <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
@@ -42,9 +42,7 @@
             </div>
 
             <div class="container-login100-form-btn">
-                <button class="login100-form-btn">
-                    Login
-                </button>
+                <input class="login100-form-btn" type="submit" value="Login">
             </div>
 
             <div class="utility">
