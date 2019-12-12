@@ -39,7 +39,7 @@ We hebben de 'login servlet' pogingen beoordeeld.<br>
 We hebben tot nu de laatste login servlet geïmplementeerd en getest.<br>
 We hebben een 'logout' servlet geïmplementeerd en getest.<br>
 We hebben het deadlineplan opgesteld :<br>
-Tot het einde van de week zullen we servers gereed maken.<br>
+Tot het einde van de week zullen we servlets gereed maken.<br>
 We zullen avatars implementeren en beginnen met de chat-module op maandag.<br>
 We zullen de chat-module afwerken op dinsdag.<br>
 We zullen het programma op alle manieren testen op woensdag .<br>
