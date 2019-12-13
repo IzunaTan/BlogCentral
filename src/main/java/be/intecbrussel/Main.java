@@ -16,16 +16,20 @@ public class Main {
         blog.addComment(comment);
 
         GenericMapper<Blog> bm = new GenericMapper<>();
+        GenericMapper<Comment> cm = new GenericMapper<>();
+        GenericMapper<Author> am = new GenericMapper<>();
 
         blog = bm.addObject(blog);
 
-        blog.getAuthor().setEmail("MY MAIL");
-
-        bm.editObject(blog);
-
-        System.out.println(bm.getObject(new Blog(), 1));
-        System.out.println("mo ? -> " + BCrypter.checkPassword("mo", aris.getPassword()));
-        System.out.println("Mo ? -> " + BCrypter.checkPassword("Mo", aris.getPassword()));
+//        blog.getAuthor().setEmail("MY MAIL");
+//
+//        bm.editObject(blog);
+//        am.removeObject(blog.getAuthor());
+//        cm.removeObject(blog.getComments().get(0));
+//
+//        System.out.println(bm.getObject(new Blog(), 1));
+//        System.out.println("mo ? -> " + BCrypter.checkPassword("mo", aris.getPassword()));
+//        System.out.println("Mo ? -> " + BCrypter.checkPassword("Mo", aris.getPassword()));
 
 //        String script = "<script src=\"some js script\"></script>";
 //        System.out.println(script);

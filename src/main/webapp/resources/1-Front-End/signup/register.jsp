@@ -15,7 +15,7 @@
     <title>Register</title>
 </head>
 
-<a href="/resources/1-Front-End/index.html" title="Back Home"><i class="fa fa-home fa-lg"></i></a>
+<a href="home" title="Back Home"><i class="fa fa-home fa-lg"></i></a>
 
 <body>
 
@@ -125,7 +125,7 @@
                     </div>
 
                     <div class="create text-center p-t-136">
-                        <a class="txt2" href="/login/login.html">Login
+                        <a class="txt2" href="login">Login
                             <i class="fa fa-sign-in" aria-hidden="true"></i>
                         </a>
                     </div>

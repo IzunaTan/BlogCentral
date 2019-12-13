@@ -34,12 +34,10 @@
         <a class="sign-in" href="login">LOGIN &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></a>
       </div>
       <!-- SEARCH Wrapper -->
-      <form action="logout" method="post">
-        <div class="search-wrapper">
-          <input type="text" name="query" autocomplete="off" placeholder="Search for&hellip;">
-          <input type="submit" class="fa fa-search" aria-hidden="true"></input>
-        </div>
-      </form>
+      <div class="search-wrapper">
+        <input type="text" name="query" autocomplete="off" placeholder="Search for&hellip;">
+        <a href=""> &nbsp;<i class="fa fa-search" aria-hidden="true"></i></a>
+      </div>
       <!-- REGISTER  Btn -->
       <div>
         <a class="register" href="register">REGISTER&nbsp;<i class="fa fa-user-plus"></i></a>
@@ -61,6 +59,8 @@
       <div class="sidebar-item">Total Visits
         <i class="fa fa-calculator" aria-hidden="true"></i>
       </div>
+
+
     </div>
 
     <!-- SORT Header -->

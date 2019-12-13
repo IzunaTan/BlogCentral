@@ -1,10 +1,12 @@
 package be.intecbrussel.model.entities;
 
+import be.intecbrussel.model.EntityInterface;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Author {
+public class Author implements EntityInterface {
     @Id
     private String username;
     @NotNull
@@ -126,7 +128,9 @@ public class Author {
     }
 
     // Copies all the attributes from an author object to this author object
-    public void cloneFrom(Author author){
+    @Override
+    public void cloneFrom(EntityInterface authorr){
+        Author author = (Author) authorr;
         this.username = author.username;
         this.password = author.password;
         this.firstName = author.firstName;
@@ -160,4 +164,10 @@ public class Author {
                 ", zipCode=" + zipCode +
                 "}\n";
     }
+
+    @Override
+    public Object getId() {
+        return username;
+    }
+
 }

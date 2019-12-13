@@ -3,3 +3,4 @@ SESSION:
     - triedIllegalRegisterOrLoginAttempt : Boolean
     - invalidCredentials : Boolean
     - lastVisitedPage : String
+    - currentPage : String

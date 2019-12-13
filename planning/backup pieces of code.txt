@@ -1,0 +1,9 @@
+if (!this.getServletName().equalsIgnoreCase((String) session.getAttribute("currentPage"))) {
+            session.setAttribute("lastPage", session.getAttribute("currentPage"));
+            session.setAttribute("currentPage", this.getServletName());
+            System.out.println(session.getAttribute("lastPage"));
+            System.out.println(session.getAttribute("currentPage"));
+        }
+
+
+window.location.replace(window.location.href);

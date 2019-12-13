@@ -15,10 +15,9 @@
     <title>Login</title>
 </head>
 
-<a href="/home/index.html" title="Back Home"><i class="fa fa-home fa-lg"></i></a>
+<a href="home" title="Back Home"><i class="fa fa-home fa-lg"></i></a>
 
 <body>
-
     <div class="container">
         <form class="login100-form validate-form" action="login" method="post">
             <span class="login100-form-title">
@@ -56,7 +55,7 @@
                 </div>
 
                 <div class="create text-center p-t-136">
-                    <a class="txt2" href="/signup/register.html">
+                    <a class="txt2" href="register">
                         Create Account
                         <i class="fa fa-long-arrow-right m-l-5 fa-lg" aria-hidden="true"></i>
                     </a>

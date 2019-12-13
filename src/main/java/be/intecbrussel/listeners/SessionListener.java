@@ -25,7 +25,7 @@ public class SessionListener implements HttpSessionListener {
     }
 
     // Retrieve the amount of active sessions (people online)
-    public static int amountOfActiveSessions(){
+    public static int amountOfActiveSessions() {
         return sessionList.size();
     }
 }

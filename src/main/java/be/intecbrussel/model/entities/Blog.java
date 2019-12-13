@@ -1,12 +1,14 @@
 package be.intecbrussel.model.entities;
 
+import be.intecbrussel.model.EntityInterface;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Blog {
+public class Blog implements EntityInterface {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -57,7 +59,7 @@ public class Blog {
         return this;
     }
 
-    public int getId() {
+    public Object getId() {
         return id;
     }
 
@@ -98,7 +100,8 @@ public class Blog {
     }
 
     // Copies all the attributes from an blog object to this blog object
-    public void cloneFrom(Blog blog) {
+    public void cloneFrom(EntityInterface blogg) {
+        Blog blog = (Blog) blogg;
         this.author = blog.author;
         this.comments = blog.comments;
         this.likeCount = blog.likeCount;
