@@ -1,4 +1,4 @@
-package be.intecbrussel.servlet;
+package be.intecbrussel.servlet.get;
 
 import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.exceptions.AuthorNotFoundException;
@@ -8,6 +8,7 @@ import be.intecbrussel.tools.BCrypter;
 import be.intecbrussel.tools.JavaScriptGenerator;
 import be.intecbrussel.tools.SessionModifier;
 
+import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,9 +28,7 @@ public class LoginServlet extends HttpServlet {
 
         // Check if user is already logged in, if yes, use alert box and send them back to their last visited page
         if (SessionModifier.isLoggedIn(session)) {
-            String alert = JavaScriptGenerator.generateAlertBox("You are already logged in");
-            resp.getWriter().println(alert);
-            resp.sendRedirect(SessionModifier.getLastPage(session));
+            resp.sendRedirect("AlreadyLoggedIn");
         }
 
         // Check if user just inputted invalid username or password, if yes, use alert box and load the login page

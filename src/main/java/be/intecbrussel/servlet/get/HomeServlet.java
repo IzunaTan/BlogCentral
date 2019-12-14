@@ -1,4 +1,4 @@
-package be.intecbrussel.servlet;
+package be.intecbrussel.servlet.get;
 
 import be.intecbrussel.tools.SessionModifier;
 
