@@ -1,4 +1,4 @@
-package be.intecbrussel.servlet.get;
+package be.intecbrussel.servlet.post;
 
 
 import javax.servlet.ServletException;

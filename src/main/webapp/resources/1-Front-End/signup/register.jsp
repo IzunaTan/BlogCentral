@@ -20,7 +20,7 @@
 <body>
 
     <div class="container">
-        <form class="login100-form validate-form" method="post" action="register">
+        <form class="login100-form validate-form" method="post" action="registerpost">
             <span class="login100-form-title">
                 Please fill the form to register
             </span>

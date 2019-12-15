@@ -5,7 +5,6 @@ import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.model.entities.Blog;
 import be.intecbrussel.model.entities.Comment;
 import be.intecbrussel.tools.BCrypter;
-import be.intecbrussel.tools.HTMLChecker;
 
 public class Main {
     public static void main(String[] args) {
