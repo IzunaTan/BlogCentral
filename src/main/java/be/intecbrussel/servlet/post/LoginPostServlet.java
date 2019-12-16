@@ -5,7 +5,7 @@ import be.intecbrussel.exceptions.AuthorNotFoundException;
 import be.intecbrussel.exceptions.PasswordInvalidException;
 import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.tools.BCrypter;
-import be.intecbrussel.tools.SessionModifier;
+import be.intecbrussel.tools.SessionController;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,15 +38,15 @@ public class LoginPostServlet extends HttpServlet {
                 throw new PasswordInvalidException();
 
             // Log the user in
-            SessionModifier.logsIn(session, author);
+            SessionController.logsIn(session, author);
             // Send the user back to the last visited page
-            resp.sendRedirect(SessionModifier.getLastPage(session));
+            resp.sendRedirect(SessionController.getLastPage(session));
         }
 
         // If the username was incorrect, or the password didn't match, we would end up arriving here
         catch (AuthorNotFoundException | PasswordInvalidException e) {
             // Sets the invalid credential flag on true
-            SessionModifier.setInvalidCredentialsFlag(session);
+            SessionController.setInvalidCredentialsFlag(session);
             // Send the user back to the login page
             resp.sendRedirect("login");
         }

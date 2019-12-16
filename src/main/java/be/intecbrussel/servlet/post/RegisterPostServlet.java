@@ -3,7 +3,7 @@ package be.intecbrussel.servlet.post;
 import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.tools.BCrypter;
-import be.intecbrussel.tools.SessionModifier;
+import be.intecbrussel.tools.SessionController;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +18,7 @@ public class RegisterPostServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        SessionModifier.addNewPageToSessionHistory(session, this.getServletName());
+        SessionController.addNewPageToSessionHistory(session, this.getServletName());
 
         // Get all parameters from the register form
         String firstName = req.getParameter("first-name");
@@ -54,8 +54,8 @@ public class RegisterPostServlet extends HttpServlet {
         author = dao.addObject(author);
 
         // Logs in the user
-        SessionModifier.logsIn(session, author);
+        SessionController.logsIn(session, author);
         // Sends the user back to his last visited page
-        resp.sendRedirect(SessionModifier.getLastPage(session));
+        resp.sendRedirect(SessionController.getLastPage(session));
     }
 }

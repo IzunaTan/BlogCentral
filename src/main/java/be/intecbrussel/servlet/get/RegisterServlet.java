@@ -1,10 +1,6 @@
 package be.intecbrussel.servlet.get;
 
-import be.intecbrussel.data.GenericMapper;
-import be.intecbrussel.model.entities.Author;
-import be.intecbrussel.tools.BCrypter;
-import be.intecbrussel.tools.JavaScriptGenerator;
-import be.intecbrussel.tools.SessionModifier;
+import be.intecbrussel.tools.SessionController;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,10 +16,10 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         // Adds the current page to the page history
-        SessionModifier.addNewPageToSessionHistory(session, this.getServletName());
+        SessionController.addNewPageToSessionHistory(session, this.getServletName());
 
         // Check if user is already logged in, if yes, use alert box and send them back to their last visited page
-        if (SessionModifier.isLoggedIn(session)) {
+        if (SessionController.isLoggedIn(session)) {
             resp.sendRedirect("AlreadyLoggedIn");
         }
 

@@ -1,6 +1,6 @@
 package be.intecbrussel.servlet.get;
 
-import be.intecbrussel.tools.SessionModifier;
+import be.intecbrussel.tools.SessionController;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +17,7 @@ public class HomeServlet extends HttpServlet {
         // Get the user's session
         HttpSession session = req.getSession();
         // Adds the current page to page history
-        SessionModifier.addNewPageToSessionHistory(session, this.getServletName());
+        SessionController.addNewPageToSessionHistory(session, this.getServletName());
         // Load the home page
         req.getRequestDispatcher("resources/1-Front-End/home/index.jsp").forward(req, resp);
     }
