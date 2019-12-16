@@ -3,15 +3,13 @@
 ///////////////////*/
 html {
     scroll-behavior: smooth;
-}
 
-* {
-    border-color: rgb(48, 221, 13) !important;
 }
 
 body {
     margin: 0%;
     scroll-behavior: smooth;
+    font-family: 'McLaren', 'Yeon Sung', 'Open Sans', sans-serif;
 }
 
 .grid-container {
@@ -28,7 +26,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: rgb(112, 8, 133);
+    color: rgba(255, 255, 255, .6);
 }
 
 .section {
@@ -39,8 +37,8 @@ a:hover {
 |:| MAIN CONTAINER
 |:|:|:|:|:|:|:|:|:|:|*/
 .container {
-    max-width: auto;
-    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 750px) {
@@ -81,7 +79,6 @@ a:hover {
     padding: 0 18px;
     display: none;
     overflow: hidden;
-    margin-left: inherit;
     /* background-color: #f1f1f1; */
 }
 
@@ -90,21 +87,19 @@ a:hover {
     display: flex;
     justify-content: center;
     padding-top: 1rem;
-    margin-left: 70%;
-
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
 }
 
 .collapsible {
     padding-top: 7rem;
-    width: 20px;
-    margin-left: 82%;
-    padding-left: 5px;
-    margin-top: 1px;
+    max-width: 60px;
+    background: transparent;
 }
 
 .sortMenu>li {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /*///////////////////
@@ -125,3 +120,7 @@ a:hover {
     border-radius: 10px;
     font-size: 30px;
 }
+
+/*/:/:/:/:/:/:/:/:/:/:/
+/:/:/:    POPUPS   :/:/:/:/
+/:/:/:/:/:/:/:/:/:/:/*/

@@ -1,5 +1,6 @@
 .sidebar {
-    position: fixed;
+    display: flex;
+    flex-direction: column;
     width: 7rem;
     padding: 0px;
     height: 100%;
