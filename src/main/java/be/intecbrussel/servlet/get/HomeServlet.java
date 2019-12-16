@@ -32,7 +32,7 @@ public class HomeServlet extends HttpServlet {
         List<String>blogList=new ArrayList<>();
 
         // Read first 6 blogs from blogcentral database
-        for (int i = 1; i < 6; i++) {
+        for (int i = 1; i < 7; i++) {
 
             try {
 
