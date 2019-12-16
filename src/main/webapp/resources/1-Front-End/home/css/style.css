@@ -1,9 +1,6 @@
 /*///////////////////
 ////Default HTML Doc
 ///////////////////*/
-html {
-    scroll-behavior: smooth;
-}
 
 * {
     border-color: rgb(48, 221, 13) !important;
@@ -12,12 +9,7 @@ html {
 body {
     margin: 0%;
     scroll-behavior: smooth;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 0fr auto;
-    grid-column: 1/4;
+    width: 50%;
 }
 
 a {
@@ -28,24 +20,19 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: rgba(10, 238, 21, 0.6);
+    color: rgba(200, 10, 238, 0.6);
 }
 
-.section {
-    padding: 10px;
-}
 
 /*|:|:|:|:|:|:|:|:|:|:|
 |:| MAIN CONTAINER
 |:|:|:|:|:|:|:|:|:|:|*/
-.container {
-    max-width: auto;
+/* .container {
+    max-width: 100%;
     display: block;
-}
+} */
 
-@media screen and (max-width: 750px) {
-
-    .row,
+@media screen and (max-width: 500px) {
     .box {
         width: 75%;
         flex-direction: column;
@@ -59,7 +46,6 @@ a:hover {
 
 .collapsible {
     color: #444;
-    margin-left: 45%;
     cursor: pointer;
     padding: 18px;
     width: 10%;
@@ -80,9 +66,7 @@ a:hover {
 .content {
     padding: 0 18px;
     display: none;
-    overflow: hidden;
     margin-left: inherit;
-    /* background-color: #f1f1f1; */
 }
 
 /* Style the menu inside it*/
@@ -90,14 +74,14 @@ a:hover {
     display: flex;
     justify-content: center;
     padding-top: 1rem;
-    margin-left: 70%;
+    margin-left: 100%;
 
 }
 
 .collapsible {
     padding-top: 7rem;
     width: 20px;
-    margin-left: 82%;
+    margin-left: 88%;
     padding-left: 5px;
     margin-top: 1px;
 }
