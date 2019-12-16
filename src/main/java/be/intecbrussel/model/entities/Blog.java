@@ -1,12 +1,14 @@
 package be.intecbrussel.model.entities;
 
+import be.intecbrussel.model.EntityInterface;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Blog {
+public class Blog implements EntityInterface {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -18,11 +20,15 @@ public class Blog {
     @NotNull
     private int likeCount;
     @NotNull
+    private String title;
+    @NotNull
     private String message;
 
-    public Blog(Author author, String message) {
+
+    public Blog(Author author, String title, String message) {
         this.author = author;
         this.likeCount = 0;
+        this.title=title;
         this.message = message;
         this.comments = new ArrayList<>();
     }
@@ -42,6 +48,15 @@ public class Blog {
         return this;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Blog setMessage(String message) {
+        this.message = message;
+        return this;
+    }
+
     public Blog setComments(List<Comment> comments) {
         this.comments = comments;
         return this;
@@ -52,12 +67,7 @@ public class Blog {
         return this;
     }
 
-    public Blog setMessage(String message) {
-        this.message = message;
-        return this;
-    }
-
-    public int getId() {
+    public Object getId() {
         return id;
     }
 
@@ -72,6 +82,8 @@ public class Blog {
     public int getLikeCount() {
         return likeCount;
     }
+
+    public String getTitle() {return title; }
 
     public String getMessage() {
         return message;
@@ -97,7 +109,9 @@ public class Blog {
 
     }
 
-    public void cloneFrom(Blog blog) {
+    // Copies all the attributes from an blog object to this blog object
+    public void cloneFrom(EntityInterface blogg) {
+        Blog blog = (Blog) blogg;
         this.author = blog.author;
         this.comments = blog.comments;
         this.likeCount = blog.likeCount;

@@ -1,35 +1,39 @@
 package be.intecbrussel.model.entities;
 
+import be.intecbrussel.model.EntityInterface;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Comment {
+public class Comment implements EntityInterface {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @NotNull
     private Author author;
+
+    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+    private Blog blog;
+
     @NotNull
     private String message;
+
     @NotNull
     private int likeCount;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Comment> comments;
 
-    public Comment(Author author, String message) {
+    public Comment() {
+    }
+
+    public Comment(Author author, Blog blog, String message) {
+        this.blog=blog;
         this.author = author;
         this.message = message;
         this.likeCount = 0;
-        this.comments = new ArrayList<>();
-    }
-
-    public Comment(){
-        this.likeCount = 0;
-        this.comments = new ArrayList<>();
     }
 
     public Comment setId(int id) {
@@ -42,6 +46,11 @@ public class Comment {
         return this;
     }
 
+    public void setBlog(Blog blog) {
+        this.blog = blog;
+    }
+
+
     public Comment setMessage(String message) {
         this.message = message;
         return this;
@@ -52,16 +61,8 @@ public class Comment {
         return this;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
 
-    public Comment setComments(List<Comment> comments) {
-        this.comments = comments;
-        return this;
-    }
-
-    public int getId() {
+    public Object getId() {
         return id;
     }
 
@@ -77,7 +78,14 @@ public class Comment {
         return likeCount;
     }
 
-    public void cloneFrom(Comment comment) {
+    public Blog getBlog() {
+        return blog;
+    }
+
+
+    // Copies all the attributes from an comment object to this comment object
+    public void cloneFrom(EntityInterface commentt) {
+        Comment comment = (Comment) commentt;
         this.author = comment.author;
         this.message = comment.message;
         this.likeCount = comment.likeCount;
@@ -85,12 +93,12 @@ public class Comment {
 
     @Override
     public String toString() {
-        return "\n Comment{" +
+        return "Comment{" +
                 "id=" + id +
                 ", author=" + author +
+                ", blog=" + blog +
                 ", message='" + message + '\'' +
                 ", likeCount=" + likeCount +
-                ", comments=" + comments +
-                "}\n";
+                '}';
     }
 }

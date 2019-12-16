@@ -1,10 +1,13 @@
 package be.intecbrussel.model.entities;
 
+import be.intecbrussel.model.EntityInterface;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Author {
+public class Author implements EntityInterface {
+
     @Id
     private String username;
     @NotNull
@@ -15,21 +18,37 @@ public class Author {
     private String lastName;
     @NotNull
     private String email;
+
     private String street;
+
     private int houseNumber;
+
     private String city;
+
     private int zipCode;
 
-    public Author(@NotNull String username, @NotNull String password, @NotNull String firstName, @NotNull String lastName, @NotNull String email, String street, int houseNumber, String city, int zipCode) {
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.street = street;
-        this.houseNumber = houseNumber;
-        this.city = city;
-        this.zipCode = zipCode;
+    public Author() {
+    }
+
+    public Author(String username, String password, String firstName, String lastName, String email,
+                  String street, int houseNumber, String city, int zipCode) {
+        this.username=username;
+        this.password=password;
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.email=email;
+        this.street=street;
+        this.houseNumber=houseNumber;
+        this.city=city;
+        this.zipCode=zipCode;
+    }
+
+    public Author(String username,String password,String firstName,String lastName, String email) {
+        this.username=username;
+        this.password=password;
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.email=email;
     }
 
     public Author setUsername(String username) {
@@ -50,9 +69,8 @@ public class Author {
         return firstName;
     }
 
-    public Author setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
-        return this;
     }
 
     public String getLastName() {
@@ -109,15 +127,16 @@ public class Author {
         return this;
     }
 
-    public Author() {
-    }
 
 
     public String getUsername() {
         return username;
     }
 
-    public void cloneFrom(Author author){
+    // Copies all the attributes from an author object to this author object
+    @Override
+    public void cloneFrom(EntityInterface authorr){
+        Author author = (Author) authorr;
         this.username = author.username;
         this.password = author.password;
         this.firstName = author.firstName;
@@ -151,4 +170,10 @@ public class Author {
                 ", zipCode=" + zipCode +
                 "}\n";
     }
+
+    @Override
+    public Object getId() {
+        return username;
+    }
+
 }
