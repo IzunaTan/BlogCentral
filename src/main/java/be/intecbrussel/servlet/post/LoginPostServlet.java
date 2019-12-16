@@ -30,11 +30,9 @@ public class LoginPostServlet extends HttpServlet {
         try {
             // Get the author with corresponding username from the database
             Author author = authorMapper.getObject(new Author(), username);
-            // Verify that the inputted password is correct
-            boolean correctPassword = BCrypter.checkPassword(password, author.getPassword());
 
             // If the password is incorrect, exception \o/
-            if (!correctPassword)
+            if (!author.checkPW(password))
                 throw new PasswordInvalidException();
 
             // Log the user in
