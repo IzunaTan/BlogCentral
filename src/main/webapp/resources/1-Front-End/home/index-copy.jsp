@@ -91,7 +91,7 @@
                                     <i class="fa fa-thumbs-up"></i>
                                 </a>
 
-                                <span class="likes-count" title="Likes"></span>
+                                <span class="likes-count" title="Likes">${iteratedlike}</span>
                                 <a class="reply-icon" title="Comment" href=""><i
                                         class="fa fa-comment"></i></a>
                                 <a class="tags-icon" title="Tags" href=""><i class="fa fa-tags"></i></a>&nbsp;
