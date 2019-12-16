@@ -1,6 +1,7 @@
 package be.intecbrussel.model.entities;
 
 import be.intecbrussel.model.EntityInterface;
+import be.intecbrussel.tools.BCrypter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -170,4 +171,7 @@ public class Author implements EntityInterface {
         return username;
     }
 
+    public boolean checkPW(String plainTextPassword){
+        return BCrypter.checkPassword(plainTextPassword, password);
+    }
 }

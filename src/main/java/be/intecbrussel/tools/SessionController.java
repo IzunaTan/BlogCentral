@@ -5,7 +5,7 @@ import be.intecbrussel.model.entities.Author;
 
 import javax.servlet.http.HttpSession;
 
-public class SessionModifier {
+public class SessionController {
     public static void addNewPageToSessionHistory(HttpSession session, String servletName) {
         String currentPage = (String) session.getAttribute("currentPage");
         if (currentPage == null || currentPage.equals("login")|| currentPage.equals("register"))

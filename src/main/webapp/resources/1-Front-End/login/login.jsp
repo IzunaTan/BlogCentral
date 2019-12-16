@@ -19,7 +19,7 @@
 
 <body>
     <div class="container">
-        <form class="login100-form validate-form" action="login" method="post">
+        <form class="login100-form validate-form" action="loginpost" method="post">
             <span class="login100-form-title">
                 Member Login
             </span>

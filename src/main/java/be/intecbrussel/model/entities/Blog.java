@@ -21,9 +21,20 @@ public class Blog implements EntityInterface {
     private int likeCount;
     @NotNull
     private String message;
+    private String title;
 
-    public Blog(Author author, String message) {
+    public String getTitle() {
+        return title;
+    }
+
+    public Blog setTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public Blog(Author author, String title, String message) {
         this.author = author;
+        this.title = title;
         this.likeCount = 0;
         this.message = message;
         this.comments = new ArrayList<>();
