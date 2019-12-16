@@ -4,7 +4,15 @@
             <!-- LOGO  Btn -->
             <h1 class="logo"><a href="home">BlogCentral</a></h1>
             <!-- LOGIN -->
+            <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+            <c:choose>
+            <c:when test="${isLoggedIn == false}">
             <a class="sign-in" href="login">LOGIN &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></a>
+            </c:when>
+            <c:otherwise>
+            <a class="sign-in" href="logout">LOGOUT &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></a>
+            </c:otherwise>
+            </c:choose>
         </div>
         <!-- SEARCH Wrapper -->
         <div class="search-wrapper">
@@ -13,7 +21,14 @@
         </div>
         <!-- REGISTER  Btn -->
         <div>
-            <a class="register" href="register">REGISTER&nbsp;<i class="fa fa-user-plus"></i></a>
+            <c:choose>
+            <c:when test="${isLoggedIn == false}">
+            <a class="sign-in" href="register">REGISTER&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></a>
+            </c:when>
+            <c:otherwise>
+            <a class="sign-in" href="register">${author.username} &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></a>
+            </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </header>

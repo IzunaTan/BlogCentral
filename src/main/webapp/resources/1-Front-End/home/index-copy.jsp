@@ -25,14 +25,14 @@
 </head>
 
 <body>
+<jsp:include page="../generalcomponents/sidebar.jsp"></jsp:include>
 <!-- HEADER Section -->
 <jsp:include page="../generalcomponents/header.jsp"></jsp:include>
 <!-- End Header-Section  -->
 
 <!-- Main-Section -->
 <main class="grid-container">
-    <jsp:include page="../generalcomponents/sidebar.jsp"></jsp:include>
-
+    
     <!-- SORT Header -->
     <div class="section">
         <button type="button" class="collapsible">Sort</button>
