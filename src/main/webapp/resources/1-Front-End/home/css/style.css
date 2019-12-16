@@ -3,13 +3,15 @@
 ///////////////////*/
 html {
     scroll-behavior: smooth;
+}
 
+* {
+    border-color: rgb(48, 221, 13) !important;
 }
 
 body {
     margin: 0%;
     scroll-behavior: smooth;
-    font-family: 'McLaren', 'Yeon Sung', 'Open Sans', sans-serif;
 }
 
 .grid-container {
@@ -26,7 +28,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: rgba(255, 255, 255, .6);
+    color: rgba(10, 238, 21, 0.6);
 }
 
 .section {
@@ -37,8 +39,8 @@ a:hover {
 |:| MAIN CONTAINER
 |:|:|:|:|:|:|:|:|:|:|*/
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: auto;
+    display: block;
 }
 
 @media screen and (max-width: 750px) {
@@ -79,6 +81,7 @@ a:hover {
     padding: 0 18px;
     display: none;
     overflow: hidden;
+    margin-left: inherit;
     /* background-color: #f1f1f1; */
 }
 
@@ -87,19 +90,21 @@ a:hover {
     display: flex;
     justify-content: center;
     padding-top: 1rem;
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+    margin-left: 70%;
+
 }
 
 .collapsible {
     padding-top: 7rem;
-    max-width: 60px;
-    background: transparent;
+    width: 20px;
+    margin-left: 82%;
+    padding-left: 5px;
+    margin-top: 1px;
 }
 
 .sortMenu>li {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 /*///////////////////
@@ -120,7 +125,3 @@ a:hover {
     border-radius: 10px;
     font-size: 30px;
 }
-
-/*/:/:/:/:/:/:/:/:/:/:/
-/:/:/:    POPUPS   :/:/:/:/
-/:/:/:/:/:/:/:/:/:/:/*/
