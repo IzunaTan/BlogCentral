@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/home/css/normalize.css" />
     <!--===============================================================================================-->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/login/css/style.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/home/css/utils.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/login/css/utils.css" />
     <title>Register</title>
 </head>
 
@@ -21,6 +21,7 @@
 
     <div class="container">
         <form class="login100-form validate-form" method="post" action="registerpost">
+
             <span class="login100-form-title">
                 Please fill the form to register
             </span>
@@ -50,7 +51,7 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
-                <input class="input100" id="password" type="password" name="password" placeholder="Password"
+                <input class="input100" id="password" type="password" onchange='validatePassword()' name="password" placeholder="Password"
                     pattern=".{8,}" required title="8 characters minimum">
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
@@ -59,7 +60,7 @@
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Password is required">
-                <input class="input100" id="confirm_password" type="password" name="retype-password"
+                <input class="input100" id="confirm_password" type="password" keyup='validatePassword()' name="retype-password"
                     placeholder="Retype Password" required>
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">

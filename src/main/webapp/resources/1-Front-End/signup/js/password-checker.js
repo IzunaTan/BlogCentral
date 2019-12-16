@@ -5,10 +5,13 @@ var password = document.getElementById("password"),
 var isValid = false
 
 function validatePassword() {
+  console.log("ok")
   if (password.value != confirm_password.value) {
+    console.log("in if")
     confirm_password.setCustomValidity("Passwords Don't Match");
     isValid = false;
   } else {
+    console.log("in else")
     confirm_password.setCustomValidity('');
     isValid = true;
   }

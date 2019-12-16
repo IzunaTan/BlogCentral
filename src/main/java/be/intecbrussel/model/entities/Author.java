@@ -175,4 +175,3 @@ public class Author implements EntityInterface {
         return BCrypter.checkPassword(plainTextPassword, password);
     }
 }
-
