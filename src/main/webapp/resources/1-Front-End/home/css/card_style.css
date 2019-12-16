@@ -1,34 +1,25 @@
-/* html {
-    box-sizing: border-box;
-}
-
 *,
 *::before,
 *::after {
     box-sizing: inherit;
-} */
-
-.userComment {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
-/* Card Component Style */
-@media screen and (max-width: 200px) {
-    .card {
-        width: 500px;
-    }
+.userComment {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
 }
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-    /* width: 475px; */
     margin-top: 40px;
-    max-width: 700px;
+    width: 750px;
     min-height: 258px;
+    margin-left: 50%;
     display: flex;
+    justify-content: center;
 }
 
 .card-title {
@@ -64,12 +55,6 @@ fieldset {
     margin-right: 20px;
 }
 
-.fa-bookmark {
-    padding-left: 10px;
-    float: right;
-    padding-right: 20px;
-}
-
 .card-message {
     margin-top: auto;
     margin-bottom: 0px;
@@ -77,10 +62,9 @@ fieldset {
     flex: 1;
 }
 
-.card-icons {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    margin-right: 10px;
+.like-icon {
+    padding-right: 0px;
+    margin-top: -5%;
 }
 
 .reply-icon {
@@ -90,12 +74,23 @@ fieldset {
 
 }
 
-.like-icon {
-    padding-right: 0px;
-    margin-top: -5%;
+.fa-bookmark {
+    padding-left: 10px;
+    float: right;
+    padding-right: 20px;
+}
+
+.card-icons {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .tags-icon {
     justify-content: flex-end;
     float: right;
+}
+
+.card-icons>:hover {
+    color: green
 }
