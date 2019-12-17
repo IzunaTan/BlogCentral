@@ -17,9 +17,10 @@
     margin-top: 40px;
     width: 750px;
     min-height: 258px;
-    margin-left: 50%;
+    margin-left: auto;
     display: flex;
     justify-content: center;
+    margin-right: auto;
 }
 
 .card-title {

@@ -109,8 +109,8 @@
 
   /* ---------->>> COMMENTING SYSTEM <<<-----------*/
   /**************************************
-    comments container & commons
-  **************************************/
+  comments container & commons
+**************************************/
   #comments-container {
       display: block;
       width: 500px;
@@ -126,8 +126,8 @@
   }
 
   /**************************************
-    new comment form
-  **************************************/
+  new comment form
+**************************************/
   #comments .comment,
   #comment--new {
       display: block;
@@ -161,8 +161,8 @@
   }
 
   /**************************************
-    user avatar & link
-  **************************************/
+  user avatar & link
+**************************************/
   .avatar {
       position: absolute;
       top: 8px;
@@ -185,8 +185,8 @@
   }
 
   /**************************************
-    existing comments
-  **************************************/
+  existing comments
+**************************************/
   #comment__textarea {
       resize: none;
       border: none;
@@ -218,8 +218,8 @@
   }
 
   /**************************************
-    comments actions (report, like, reply)
-  **************************************/
+  comments actions (report, like, reply)
+**************************************/
   #comments .comment__action {
       color: #b7b7b7;
       text-transform: capitalize;

@@ -1,5 +1,6 @@
 package be.intecbrussel.listeners;
 
+import be.intecbrussel.data.EntityManagerFactoryProvider;
 import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.model.entities.Blog;
@@ -110,6 +111,6 @@ public class Initialiser implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-
+        EntityManagerFactoryProvider.killEMFP();
     }
 }

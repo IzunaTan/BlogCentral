@@ -25,56 +25,26 @@
 </head>
 
 <body>
+<jsp:include page="../generalcomponents/sidebar.jsp"></jsp:include>
+<jsp:include page="../generalcomponents/header.jsp"></jsp:include>
+
 <!-- HEADER Section -->
-<header class="section">
-    <div class="container">
-        <div class="header-top">
-            <!-- LOGO  Btn -->
-            <h1 class="logo"><a href="home">BlogCentral</a></h1>
-            <!-- LOGIN -->
-            <a class="sign-in" href="login">LOGIN &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></a>
-        </div>
-        <!-- SEARCH Wrapper -->
-        <div class="search-wrapper">
-            <input type="text" name="query" autocomplete="off" placeholder="Search for&hellip;">
-            <a href=""> &nbsp;<i class="fa fa-search" aria-hidden="true"></i></a>
-        </div>
-        <!-- REGISTER  Btn -->
-        <div>
-            <a class="register" href="register">REGISTER&nbsp;<i class="fa fa-user-plus"></i></a>
-        </div>
-    </div>
-</header>
 <!-- End Header-Section  -->
 
 <!-- Main-Section -->
 <main class="grid-container">
-    <!-- SIDE Function -->
-    <div class="sidebar">
-        <div class="sidebar-item">Online &nbsp;
-            <i class="fa fa-users" aria-hidden="true"></i>
-        </div>
-        <div class="sidebar-item">Total &nbsp; &nbsp;
-            <i class="fa fa-users" aria-hidden="true"></i>
-        </div>
-        <div class="sidebar-item">Total Visits
-            <i class="fa fa-calculator" aria-hidden="true"></i>
-        </div>
-
-
-    </div>
-
+    
     <!-- SORT Header -->
-    <div class="section">
-        <button type="button" class="collapsible">Sort</button>
-        <div class="content">
-            <div class="sortMenu">
-                <li><a href="#">POPULAR</a></li>
-                <li><a href="#">LATEST</a></li>
-                <li><a href="#">ELDEST</a></li>
-            </div>
-        </div>
-
+    <div class="collapse">
+    <button type="button" class="collapsible">Sort</button>
+    <div class="content">
+      <div class="sortMenu">
+        <li><a href="#">POPULAR</a></li>
+        <li><a href="#">LATEST</a></li>
+        <li><a href="#">ELDEST</a></li>
+      </div>
+    </div>
+  </div>
         <!-- USER Container -->
         <div class="container">
             <div class="userComment">
@@ -86,7 +56,7 @@
 
                     <c:set var="iteratedusername" value="${blogloaded.author.username}"/>
                     <c:set var="iteratedtitle" value="${blogloaded.title}"/>
-<%--                    <c:set var="iteratedlike" value="${blogloaded.likeCount}"/>--%>
+                    <c:set var="iteratedlike" value="${blogloaded.likeCount}"/>
                     <c:set var="iteratedmessage" value="${blogloaded.message}"/>
 
                     <%--                    <c:set var="iteratedusername" value="${blogloaded.author.username}"/>--%>
@@ -122,11 +92,11 @@
                                     <i class="fa fa-thumbs-up"></i>
                                 </a>
 
-                                <span class="likes-count" title="Likes"></span>
-                                <a class="reply-icon" title="Comment" href=""><i
-                                        class="fa fa-comment"></i></a>
-                                <a class="tags-icon" title="Tags" href=""><i class="fa fa-tags"></i></a>&nbsp;
-                                <a title="Bookmark" href=""><i class="fa fa-bookmark" aria-hidden="true"></i></a>
+                                <span class="likes-count" title="Likes">111</span>
+            <a class="reply-icon" title="Comment" href="" onclick="alertFunction()"><i class="fa fa-comment"></i></a>
+            <a class="tags-icon" title="Tags" href="" onclick="alertFunction()"><i class="fa fa-tags"></i></a>&nbsp;
+            <a class="tags-icon" title="Bookmark" href="" onclick="alertFunction()"><i class="fa fa-bookmark"
+                aria-hidden="true"></i></a>
 
                             </div>
                             </fieldset>
@@ -152,7 +122,6 @@
     </div>
 </main>
 <script src="resources/1-Front-End/home/js/collapsible.js"></script>
-</script>
 </body>
 
 </html>
