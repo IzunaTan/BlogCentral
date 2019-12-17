@@ -55,7 +55,7 @@ public class HomeServlet extends HttpServlet {
         // Adds the current page to page history
         SessionController.addNewPageToSessionHistory(session, this.getServletName());
         // Load the home page
-        req.getRequestDispatcher("resources/1-Front-End/home/index-copy.jsp").forward(req, resp);
+        req.getRequestDispatcher("resources/1-Front-End/home/index.jsp").forward(req, resp);
 
     }
 }

@@ -53,3 +53,7 @@ function popUpFunction() {
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
 }
+
+function alertFunction() {
+    alert("You need to be logged in to do this");
+}

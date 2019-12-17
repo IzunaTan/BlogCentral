@@ -1,3 +1,8 @@
+.collapse {
+    padding: 10px;
+    margin-left: 100%;
+}
+
 li {
     display: flex;
     justify-content: center;
