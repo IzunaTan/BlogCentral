@@ -55,5 +55,6 @@ function popUpFunction() {
 }
 
 function alertFunction() {
-    alert("You need to be logged in to do this");
+    alert("You need to be logged in to do this  ");
+
 }

@@ -138,6 +138,10 @@
 
   #comment__form {
       margin: 10px;
+      display: flex;
+      justify-content: center;
+      height: 50px;
+      ;
   }
 
   #comment--send {
