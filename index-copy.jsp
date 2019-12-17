@@ -85,11 +85,11 @@
 
                 <%--            The cards are looping below --%>
 
-                <c:forEach items="${blogsDynamic}" var="blogloaded" varStatus="i">
+                <c:forEach items="${blogsDynamic}" var="blogloaded" varStatus="loop">
 
                     <c:set var="iteratedusername" value="${blogloaded.author.username}"/>
                     <c:set var="iteratedtitle" value="${blogloaded.title}"/>
-                    <c:set var="iteratedlike" value="${blogloaded.likeCount}"/>
+                    <c:set var="iteratedlike" value="${nooflikes[loop.count]+1}"/>
                     <c:set var="iteratedmessage" value="${blogloaded.message}"/>
 
 
@@ -114,7 +114,7 @@
                                         ${iteratedmessage}
                                 </p>
                                 <div class="card-icons">
-                                <a class="like-icon" title="Like" href="#">
+                                <a class="like-icon" title="Like" href="#" onclick="javascript:likefunction()">
                                     <i class="fa fa-thumbs-up"></i>
                                 </a>
 
@@ -128,7 +128,7 @@
                             </fieldset>
 
 
-                            
+
                         </div>
                     </div>
 
@@ -145,7 +145,7 @@
     </div>
 </main>
 <script src="resources/1-Front-End/home/js/collapsible.js"></script>
-
+<script src="resources/1-Front-End/home/js/likefunction.js"></script>
 </body>
 
 </html>

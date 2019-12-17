@@ -4,6 +4,8 @@ import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.exceptions.AuthorNotFoundException;
 import be.intecbrussel.model.entities.Blog;
 import be.intecbrussel.tools.SessionController;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +23,10 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Get the user's session
         HttpSession session = req.getSession();
+        ServletContext ctx= session.getServletContext();
 
-           // Create an instance of the genericmapper user as the class
+
+        // Create an instance of the genericmapper user as the class
         GenericMapper<Blog> dao = new GenericMapper<>();
         Blog blog=new Blog();
 
@@ -39,25 +43,28 @@ public class HomeServlet extends HttpServlet {
                 Blog blogRead = dao.getObject(blog, i);
                 blogsDynamic.add(blogRead);
                 noOfComments.add(blogRead.getComments().size());
-                noOfLikes.add(0);
+                noOfLikes.add(blogRead.getLikeCount());
+
 
             } catch (AuthorNotFoundException e) {
                 e.printStackTrace();
             }
         }
 
-
         req.setAttribute("blogsDynamic",blogsDynamic);
         req.setAttribute("visitcounter",counter++);
         req.setAttribute("noofcomments",noOfComments);
-        req.setAttribute("nooflikes",noOfLikes);
-
-
-
+//        req.setAttribute("nooflikes",noOfLikes);
+        ctx.setAttribute("nooflikes",noOfLikes);
         // Adds the current page to page history
         SessionController.addNewPageToSessionHistory(session, this.getServletName());
         // Load the home page
         req.getRequestDispatcher("resources/1-Front-End/home/index-copy.jsp").forward(req, resp);
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
     }
 }
