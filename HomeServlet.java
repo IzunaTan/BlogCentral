@@ -4,8 +4,6 @@ import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.exceptions.AuthorNotFoundException;
 import be.intecbrussel.model.entities.Blog;
 import be.intecbrussel.tools.SessionController;
-
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,53 +16,42 @@ import java.util.List;
 
 @WebServlet(name = "home", value = "/home")
 public class HomeServlet extends HttpServlet {
-    int counter=0;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Get the user's session
         HttpSession session = req.getSession();
-        ServletContext ctx= session.getServletContext();
 
-
-        // Create an instance of the genericmapper user as the class
+           // Create an instance of the genericmapper user as the class
         GenericMapper<Blog> dao = new GenericMapper<>();
         Blog blog=new Blog();
 
-          // Create list of cards to be read from database
+
+        // Create list of cards to be read from database
         List<Blog> blogsDynamic=new ArrayList<>();
-        List<Integer>noOfComments=new ArrayList<>();
-        List<Integer>noOfLikes=new ArrayList<>();
+
+        List<Integer>blogsLikeList=new ArrayList<>();
 
         // Read first 6 blogs from blogcentral database
-        for (int i = 1; i < 6; i++) {
+        for (int i = 1; i < 7; i++) {
 
             try {
 
                 Blog blogRead = dao.getObject(blog, i);
                 blogsDynamic.add(blogRead);
-                noOfComments.add(blogRead.getComments().size());
-                noOfLikes.add(blogRead.getLikeCount());
-
+                blogsLikeList.add(blogRead.getLikeCount());
 
             } catch (AuthorNotFoundException e) {
                 e.printStackTrace();
             }
         }
 
+        req.setAttribute("bloglikelist",blogsLikeList);
         req.setAttribute("blogsDynamic",blogsDynamic);
-        req.setAttribute("visitcounter",counter++);
-        req.setAttribute("noofcomments",noOfComments);
-//        req.setAttribute("nooflikes",noOfLikes);
-        ctx.setAttribute("nooflikes",noOfLikes);
+
         // Adds the current page to page history
         SessionController.addNewPageToSessionHistory(session, this.getServletName());
         // Load the home page
         req.getRequestDispatcher("resources/1-Front-End/home/index-copy.jsp").forward(req, resp);
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
     }
 }

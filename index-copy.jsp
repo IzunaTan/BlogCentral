@@ -1,9 +1,7 @@
-<%@ page import="be.intecbrussel.listeners.SessionListener" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
-
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en">
 
 <head>
@@ -28,56 +26,26 @@
 </head>
 
 <body>
+<jsp:include page="../generalcomponents/sidebar.jsp"></jsp:include>
+<jsp:include page="../generalcomponents/header.jsp"></jsp:include>
+
 <!-- HEADER Section -->
-<header class="section">
-    <div class="container">
-        <div class="header-top">
-            <!-- LOGO  Btn -->
-            <h1 class="logo"><a href="home">BlogCentral</a></h1>
-            <!-- LOGIN -->
-            <a class="sign-in" href="login">LOGIN &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></a>
-        </div>
-        <!-- SEARCH Wrapper -->
-        <div class="search-wrapper">
-            <input type="text" name="query" autocomplete="off" placeholder="Search for&hellip;">
-            <a href=""> &nbsp;<i class="fa fa-search" aria-hidden="true"></i></a>
-        </div>
-        <!-- REGISTER  Btn -->
-        <div>
-            <a class="register" href="register">REGISTER&nbsp;<i class="fa fa-user-plus"></i></a>
-        </div>
-    </div>
-</header>
 <!-- End Header-Section  -->
 
 <!-- Main-Section -->
 <main class="grid-container">
-    <!-- SIDE Function -->
-    <div class="sidebar">
-        <div class="sidebar-item">Online:<%=SessionListener.amountOfActiveSessions()%>
-            <i class="fa fa-users" aria-hidden="true"></i>
-        </div>
-        <div class="sidebar-item">Total &nbsp; &nbsp;
-            <i class="fa fa-users" aria-hidden="true"></i>
-        </div>
-        <div class="sidebar-item">Total Visits:${visitcounter}
-            <i class="fa fa-calculator" aria-hidden="true"></i>
-        </div>
-
-
-    </div>
-
+    
     <!-- SORT Header -->
-    <div class="section">
-        <button type="button" class="collapsible">Sort</button>
-        <div class="content">
-            <div class="sortMenu">
-                <li><a href="#">POPULAR</a></li>
-                <li><a href="#">LATEST</a></li>
-                <li><a href="#">ELDEST</a></li>
-            </div>
-        </div>
-
+    <div class="collapse">
+    <button type="button" class="collapsible">Sort</button>
+    <div class="content">
+      <div class="sortMenu">
+        <li><a href="#">POPULAR</a></li>
+        <li><a href="#">LATEST</a></li>
+        <li><a href="#">ELDEST</a></li>
+      </div>
+    </div>
+  </div>
         <!-- USER Container -->
         <div class="container">
             <div class="userComment">
@@ -85,13 +53,17 @@
 
                 <%--            The cards are looping below --%>
 
+                <c:forEach items="${bloglikelist}" var="bloglikelist">
+
+                </c:forEach>
                 <c:forEach items="${blogsDynamic}" var="blogloaded" varStatus="loop">
 
                     <c:set var="iteratedusername" value="${blogloaded.author.username}"/>
                     <c:set var="iteratedtitle" value="${blogloaded.title}"/>
-                    <c:set var="iteratedlike" value="${nooflikes[loop.count]+1}"/>
+                    <c:set var="iteratedlike" value="${blogloaded.likeCount}"/>
                     <c:set var="iteratedmessage" value="${blogloaded.message}"/>
 
+                    <%--             The division below is card to be repeated in our loop--%>
 
                     <!-- POST Card -->
                     <div class="card">
@@ -114,30 +86,33 @@
                                         ${iteratedmessage}
                                 </p>
                                 <div class="card-icons">
-                                <a class="like-icon" title="Like" href="#" onclick="javascript:likefunction()">
+                                <a class="like-icon" title="Like" href="#">${iteratedlike}
                                     <i class="fa fa-thumbs-up"></i>
                                 </a>
 
-                                <span class="likes-count" title="Likes">${iteratedlike}</span>
-                                <a class="reply-icon" title="Comment" href=""><i
-                                        class="fa fa-comment"></i>${iteratedlike}</a>
-                                <a class="tags-icon" title="Tags" href=""><i class="fa fa-tags"></i></a>&nbsp;
-                                <a title="Bookmark" href=""><i class="fa fa-bookmark" aria-hidden="true"></i></a>
+                                <span class="likes-count" title="Likes" onclick="${bloglikelist[loop.count]++;}">${iteratedlike}</span>
+            <a class="reply-icon" title="Comment" href="" onclick="alertFunction()"><i class="fa fa-comment"></i></a>
+            <a class="tags-icon" title="Tags" href="" onclick="alertFunction()"><i class="fa fa-tags"></i></a>&nbsp;
+            <a class="tags-icon" title="Bookmark" href="" onclick="alertFunction()"><i class="fa fa-bookmark"
+                aria-hidden="true"></i></a>
 
                             </div>
                             </fieldset>
 
 
-
+                            
                         </div>
                     </div>
 
                     <a href="" onclick="topFunction()" id="myBtn" title="Back to top"><i class="fa fa-arrow-up"></i></a>
+                    <!-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> -->
+
 
 
                 </c:forEach>
 
                 <%--            End of the loop of cards--%>
+
 
             </div>
 
@@ -145,7 +120,6 @@
     </div>
 </main>
 <script src="resources/1-Front-End/home/js/collapsible.js"></script>
-<script src="resources/1-Front-End/home/js/likefunction.js"></script>
 </body>
 
 </html>
