@@ -25,9 +25,9 @@
 </head>
 
 <body>
+<jsp:include page="../generalcomponents/header.jsp"></jsp:include>
 <jsp:include page="../generalcomponents/sidebar.jsp"></jsp:include>
 <!-- HEADER Section -->
-<jsp:include page="../generalcomponents/header.jsp"></jsp:include>
 <!-- End Header-Section  -->
 
 <!-- Main-Section -->

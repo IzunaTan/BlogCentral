@@ -10,12 +10,14 @@ body {
     margin: 0%;
     scroll-behavior: smooth;
     font-family: 'McLaren', 'Yeon Sung', 'Open Sans', sans-serif;
+    display: flex;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: 0fr auto;
     grid-column: 1/4;
+    margin-left: 300px;
 }
 
 a {
@@ -39,6 +41,7 @@ a:hover {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    text-align: right;
 }
 
 @media screen and (max-width: 750px) {
