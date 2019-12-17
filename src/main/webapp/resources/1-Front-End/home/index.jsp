@@ -27,16 +27,28 @@
   <!-- Main-Section -->
   <div class="container">
     <!-- SIDE Function -->
-    <jsp:include page="../generalcomponents/sidebar.jsp"></jsp:include>
+    <jsp:include page="../generalcomponents/sidebar.jsp" />
 
     <!-- HEADER Section -->
-    <jsp:include page="../generalcomponents/header.jsp"></jsp:include>
+    <jsp:include page="../generalcomponents/header.jsp" />
 
     <!-- End Header-Section  -->
     <!-- SORT Header -->
-    <jsp:include page="homecomponents/sortheader.jsp"></jsp:include>
+    <jsp:include page="homecomponents/sortheader.jsp" />
     <!-- POST Card -->
-    <jsp:include page="homecomponents/postcard.jsp"></jsp:include>
+
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    <c:forEach items="${blogsDynamic}" var="blogloaded">
+
+      <jsp:include page="../generalcomponents/postcard.jsp">
+        <jsp:param name="username" value="${blogloaded.author.username}" />
+        <jsp:param name="title" value="${blogloaded.title}" />
+        <jsp:param name="likes" value="${blogloaded.likeCount}" />
+        <jsp:param name="message" value="${blogloaded.message}" />
+      </jsp:include>
+
+    </c:forEach>
 
     <a href="" onclick="topFunction()" id="myBtn" title="Back to top"><i class="fa fa-arrow-up"></i></a>
     <!-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> -->
