@@ -26,17 +26,17 @@
 <body>
   <!-- Main-Section -->
   <div class="container">
+
     <!-- SIDE Function -->
     <jsp:include page="../generalcomponents/sidebar.jsp" />
 
     <!-- HEADER Section -->
     <jsp:include page="../generalcomponents/header.jsp" />
 
-    <!-- End Header-Section  -->
     <!-- SORT Header -->
     <jsp:include page="homecomponents/sortheader.jsp" />
-    <!-- POST Card -->
 
+    <!-- POST Card -->
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
     <c:forEach items="${blogsDynamic}" var="blogloaded">
@@ -51,7 +51,6 @@
     </c:forEach>
 
     <a href="" onclick="topFunction()" id="myBtn" title="Back to top"><i class="fa fa-arrow-up"></i></a>
-    <!-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> -->
 
     <script src="resources/1-Front-End/home/js/collapsible.js"></script>
 
