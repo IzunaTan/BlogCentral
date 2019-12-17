@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <head>
     <meta charset="UTF-8">
@@ -12,14 +11,15 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!--===============================================================================================-->
-
-
-    <link rel="stylescheet" type="text/css"
+    <link rel="stylesheet" type="text/css"
         href="${pageContext.request.contextPath}/resources/1-Front-End/commenting-system/css/commenting-system.css">
+
+
 
 </head>
 
 <body>
+
     <div id="comments-container">
         <div id="comment--new" class="comment">
             <div class="avatar comment__avatar">
@@ -239,5 +239,3 @@
     </div>
 
 </body>
-
-</html>

@@ -11,4 +11,8 @@ public class EntityManagerFactoryProvider {
     public static EntityManager getEM() {
         return entityManagerFactory.createEntityManager();
     }
+
+    public static void killEMFP(){
+        entityManagerFactory.close();
+    }
 }

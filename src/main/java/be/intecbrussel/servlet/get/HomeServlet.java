@@ -32,7 +32,7 @@ public class HomeServlet extends HttpServlet {
         List<String>blogList=new ArrayList<>();
 
         // Read first 6 blogs from blogcentral database
-        for (int i = 1; i < 6; i++) {
+        for (int i = 1; i < 7; i++) {
 
             try {
 
@@ -55,7 +55,7 @@ public class HomeServlet extends HttpServlet {
         // Adds the current page to page history
         SessionController.addNewPageToSessionHistory(session, this.getServletName());
         // Load the home page
-        req.getRequestDispatcher("resources/1-Front-End/home/index-copy.jsp").forward(req, resp);
+        req.getRequestDispatcher("resources/1-Front-End/home/index.jsp").forward(req, resp);
 
     }
 }
