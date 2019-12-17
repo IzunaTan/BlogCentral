@@ -1,7 +1,6 @@
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    width: 7rem;
+    position: fixed;
+    width: 6rem;
     padding: 0px;
     height: 100%;
     background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgb(0, 255, 21), rgb(0, 201, 255)) repeat scroll 0% 0%;
@@ -11,5 +10,5 @@
     overflow: visible;
     margin-top: 150px;
     font-size: medium;
-    /* font-weight: bold; */
+    font-weight: bold;
 }

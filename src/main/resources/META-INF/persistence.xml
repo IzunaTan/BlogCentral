@@ -8,7 +8,7 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/blogcentral?serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="intecpotato"/>
             <property name="javax.persistence.jdbc.password" value="grp"/>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>

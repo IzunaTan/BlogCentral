@@ -4,12 +4,13 @@
 
 * {
     border-color: rgb(48, 221, 13) !important;
+    outline: 0 !important;
 }
 
 body {
     margin: 0%;
     scroll-behavior: smooth;
-    width: 50%;
+    width: 100%;
 }
 
 a {
@@ -21,6 +22,10 @@ a {
 a:hover {
     text-decoration: underline;
     color: rgba(200, 10, 238, 0.6);
+}
+
+.mysearchicon:hover {
+    text-decoration: none;
 }
 
 
@@ -74,14 +79,13 @@ a:hover {
     display: flex;
     justify-content: center;
     padding-top: 1rem;
-    margin-left: 100%;
 
 }
 
 .collapsible {
     padding-top: 7rem;
     width: 20px;
-    margin-left: 88%;
+    margin-left: 49%;
     padding-left: 5px;
     margin-top: 1px;
 }
