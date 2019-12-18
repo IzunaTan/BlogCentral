@@ -1,16 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/home/css/normalize.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/home/css/style.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/home/css/header.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/home/css/sortBtn.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/home/css/sidebar.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/1-Front-End/home/css/card_style.css" />
-
-</head>
-
 <header class="">
     <div class="header-top">
         <!-- LOGO  Btn -->
@@ -27,8 +17,11 @@
     </div>
     <!-- SEARCH Wrapper -->
     <div class="search-wrapper">
-        <input type="text" name="query" autocomplete="off" placeholder="Search for&hellip;" type="submit">
-        <a class="mysearchicon" href=""> &nbsp;<i class="fa fa-search fa-lg" aria-hidden="true"></i></a>
+        <form action="search" method="get">
+            <input type="text" name="query" autocomplete="off" placeholder="Search for&hellip;" type="submit"></input>
+            <button type="submit" class="mysearchicon"> &nbsp;<i class="fa fa-search fa-lg"
+                    aria-hidden="true"></i></button>
+        </form>
     </div>
     <!-- REGISTER  Btn -->
     <div>
