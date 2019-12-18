@@ -34,6 +34,19 @@ public class GenericMapper<T extends EntityInterface> {
         return obj;
     }
 
+    public T removeObject(T obj, Object id) {
+        EntityManager em = EntityManagerFactoryProvider.getEM();
+        EntityTransaction tx = em.getTransaction();
+
+        tx.begin();
+        obj = (T) em.find(obj.getClass(), id);
+        em.remove(obj);
+        tx.commit();
+
+        em.close();
+        return obj;
+    }
+
     public T editObject(T obj) {
         EntityManager em = EntityManagerFactoryProvider.getEM();
         EntityTransaction transaction = em.getTransaction();

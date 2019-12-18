@@ -8,7 +8,7 @@
       <c:set var="s" value="${Author.username}" />
       <c:set var="b" value="${requestScope.comment.author.username}" />
       <c:if test="${s == b}">
-        <form method="deletecomment" action="post">
+        <form action="deletecomment" method="post">
           <input type="hidden" name="commentID" value="${requestScope.comment.id}" />
           <input type="submit" value="X" style="margin-right: 5%; margin-left: 95%;" />
         </form>
