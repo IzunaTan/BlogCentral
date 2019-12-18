@@ -42,6 +42,7 @@
     <c:forEach items="${blogsDynamic}" var="blogloaded">
 
       <jsp:include page="../generalcomponents/postcard.jsp">
+        <jsp:param name="id" value="${blogloaded.id}" />
         <jsp:param name="username" value="${blogloaded.author.username}" />
         <jsp:param name="title" value="${blogloaded.title}" />
         <jsp:param name="likes" value="${blogloaded.likeCount}" />

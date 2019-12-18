@@ -11,10 +11,12 @@
   <div class="right">
     <fieldset>
       <legend>
-        <h3><a class="card-title" href="#"><%=request.getParameter("title")%></a></h3>
+        <% Integer id = Integer.parseInt(request.getParameter("id")); %>
+        <h3><a class="card-title" href="blogdetail?id=<%=id%>"><%=request.getParameter("title")%></a>
+        </h3>
       </legend>
 
-      <p class="card-message"><%=request.getParameter("message")%></p>
+      <p class=" card-message"><%=request.getParameter("message")%></p>
       <div class="card-icons">
         <a class="like-icon" title="Like" href="#">
           <i class="fa fa-thumbs-up"></i>
