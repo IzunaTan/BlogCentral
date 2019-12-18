@@ -36,5 +36,6 @@
             <jsp:param name="likes" value="1337" />
             <jsp:param name="message" value="message" />
         </jsp:include>
+
     </div>
 </body>
