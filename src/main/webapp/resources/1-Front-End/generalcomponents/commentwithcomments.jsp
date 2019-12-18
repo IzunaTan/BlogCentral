@@ -8,7 +8,7 @@
   <div class="comment__content">
     <div>
       <a href="#">
-        <span class="user__link">tttt</span>
+        <span class="user__link">${requestScope.comment.author.username}</span>
       </a>
       <span class="comment__pub-date"> - posted 1 week ago</span>
       <a href="#" title="report abuse" class="comment__action"><i

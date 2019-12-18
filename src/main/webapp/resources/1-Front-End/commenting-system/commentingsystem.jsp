@@ -29,12 +29,12 @@
     <div class="container">
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-        <c:set var="id" value="${blog.id}" scope="request" />
-        <c:set var="username" value="${blog.author.username}" scope="request" />
-        <c:set var="title" value="${blog.title}" scope="request" />
-        <c:set var="likes" value="${blog.likeCount}" scope="request" />
-        <c:set var="message" value="${blog.message}" scope="request" />
-        <c:set var="comments" value="${blog.comments}" scope="request" />
+        <c:set var="blog_id" value="${blog.id}" scope="request" />
+        <c:set var="blog_username" value="${blog.author.username}" scope="request" />
+        <c:set var="blog_title" value="${blog.title}" scope="request" />
+        <c:set var="blog_likes" value="${blog.likeCount}" scope="request" />
+        <c:set var="blog_message" value="${blog.message}" scope="request" />
+        <c:set var="blog_comments" value="${blog.comments}" scope="request" />
 
         <c:import url="../generalcomponents/sidebar.jsp" />
         <c:import url="../generalcomponents/header.jsp" />

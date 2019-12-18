@@ -5,6 +5,7 @@ import be.intecbrussel.model.EntityInterface;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -90,8 +91,8 @@ public class Blog implements EntityInterface {
         return message;
     }
 
-    public void addComment(Comment comment){
-        this.comments.add(comment);
+    public void addComments(Comment... comments){
+        Arrays.stream(comments).forEach(e -> this.comments.add(e));
     }
 
     // Copies all the attributes from an blog object to this blog object

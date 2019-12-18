@@ -23,6 +23,7 @@ public class Initialiser implements ServletContextListener {
         Author author5=new Author("cforshaw", "hpV", "Cyril", "Forshaw", "cforshawj@theatlantic.com", "Fair Oaks", 815, "Gent", 1928);
         Author author6=new Author("saldinea", "traffic", "Stefan", "Aldine", "saldinea@deliciousdays.com", "Lyons", 5, "Momignies", 1828);
         Author author7=new Author("hlatek", "hexon", "Harley", "Latek", "hlatek@census.gov", "Annamark", 658, "Brusells", 3743);
+
         List<Author> l = new ArrayList<>();
         l.add(author1);
         l.add(author2);
@@ -33,15 +34,20 @@ public class Initialiser implements ServletContextListener {
         l.add(author7);
         l.forEach(e -> e.setPassword(BCrypter.hashPassword(e.getPassword())));
 
+
         Blog blog1=new Blog(author1,"The new way of writing for IRB-composed length scale parts","This is a hybrid way of incorporating both uniformity of output and the more general structure used in the Adler-Astrich (A-A) and LAB volumes in ARC ; these sections will be increased in resolution.");
-        Comment comment01=new Comment(author2,"How as a student should you proceed? Are you presenting a complete program or just the form of an A-A? One way to differentiate an A-A is to answer the following question: Does this structure have real structure? ");
+        blog1.addComments(
+        new Comment(author2,"How as a student should you proceed? Are you presenting a complete program or just the form of an A-A? One way to differentiate an A-A is to answer the following question: Does this structure have real structure? ")
+        );
 
         Blog blog2=new Blog(author2,"What is artificial intelligence?"," The term 'artificial intelligence' generally means artificial thinking, and AI techniques are being employed for purposes of managing data and for organizing the world's data. ");
-        Comment comment02=new Comment(author6,"Why is there a need for research? I don't understand");
-        Comment comment03=new Comment(author2,"Advances in technology will enable computers to recognize objects, manipulate images and to think creatively about learning new problems. However, computing");
-        Comment comment04=new Comment(author3,"In the age of computers, robots are not really going to destroy jobs in this country, and even if they do, they're not going to destroy them in the same way that cars and airlines did, where they displaced people.");
-        Comment comment05=new Comment(author2,"But there is more to it than that.");
-        Comment comment06=new Comment(author2,"By 2025, the robot revolution will really be over. In fact, it will have played out in human society much more profoundly than we realized, and this is a huge story.");
+        blog2.addComments(
+        new Comment(author6,"Why is there a need for research? I don't understand"),
+        new Comment(author2,"Advances in technology will enable computers to recognize objects, manipulate images and to think creatively about learning new problems. However, computing"),
+        new Comment(author3,"In the age of computers, robots are not really going to destroy jobs in this country, and even if they do, they're not going to destroy them in the same way that cars and airlines did, where they displaced people."),
+        new Comment(author2,"But there is more to it than that."),
+        new Comment(author2,"By 2025, the robot revolution will really be over. In fact, it will have played out in human society much more profoundly than we realized, and this is a huge story.")
+        );
 
         Blog blog3=new Blog(author5,"Java is the best programming language.","Computing data formats has undergone considerable research and development over the last decade.");
         Comment comment07=new Comment(author2,"I recently joined to a talk. The bulk of the talk was devoted to her role in developing Oracle JDK and Java development tools such as J2SE. These tools have drastically reduced development time and is responsible for the growth of the Java ecosystem.");
@@ -62,6 +68,7 @@ public class Initialiser implements ServletContextListener {
         Comment comment18=new Comment(author4,"When you use these procedures, the data stored in your database is referred to as a schema. Your database is referred to as a database.");
         Comment comment19=new Comment(author6,"MangoDB is the best. Sorry.One of the main takeaways from using both MongoDB and StomAmbol is that there are a lot of ways to do a large number of queries and execute them simultaneously.");
         Comment comment20=new Comment(author7,"I also see some conflicts: the business logic that should never leave the database, cannot be replicated to the remote repository, nor can it be moved from a remote repository to an internal repository.");
+
 
         // End of instantiations of authors, blogs and comments
 
@@ -84,27 +91,6 @@ public class Initialiser implements ServletContextListener {
         bm.addObject(blog3);
         bm.addObject(blog4);
         bm.addObject(blog5);
-
-        co.addObject(comment01);
-        co.addObject(comment02);
-        co.addObject(comment03);
-        co.addObject(comment04);
-        co.addObject(comment05);
-        co.addObject(comment06);
-        co.addObject(comment07);
-        co.addObject(comment08);
-        co.addObject(comment09);
-        co.addObject(comment10);
-        co.addObject(comment11);
-        co.addObject(comment12);
-        co.addObject(comment13);
-        co.addObject(comment14);
-        co.addObject(comment15);
-        co.addObject(comment16);
-        co.addObject(comment17);
-        co.addObject(comment18);
-        co.addObject(comment19);
-        co.addObject(comment20);
 
         // End. If the lines above are executed, the database will be full of data.
     }
