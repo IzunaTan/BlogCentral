@@ -4,7 +4,6 @@ import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.exceptions.AuthorNotFoundException;
 import be.intecbrussel.exceptions.PasswordInvalidException;
 import be.intecbrussel.model.entities.Author;
-import be.intecbrussel.tools.BCrypter;
 import be.intecbrussel.tools.SessionController;
 
 import javax.servlet.annotation.WebServlet;

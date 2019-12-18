@@ -20,7 +20,7 @@ public class BlogDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
-        SessionController.addNewPageToSessionHistory(session, this.getServletName());
+        SessionController.addNewPageToSessionHistory(session, this.getServletName(), req.getQueryString());
 
         Integer idBlog = Integer.valueOf(req.getParameter("id"));
 

@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         // Adds the current page to the page history
-        SessionController.addNewPageToSessionHistory(session, this.getServletName());
+        SessionController.addNewPageToSessionHistory(session, this.getServletName(), req.getQueryString());
 
         // Check if user is already logged in, if yes, use alert box and send them back to their last visited page
         if (SessionController.isLoggedIn(session)) {

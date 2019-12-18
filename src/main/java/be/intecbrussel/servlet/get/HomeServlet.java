@@ -21,7 +21,7 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Get the user's session
         HttpSession session = req.getSession();
-        SessionController.addNewPageToSessionHistory(session, this.getServletName());
+        SessionController.addNewPageToSessionHistory(session, this.getServletName(), req.getQueryString());
 
 
         // Create an instance of the genericmapper user as the class

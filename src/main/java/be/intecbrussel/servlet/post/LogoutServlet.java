@@ -3,7 +3,6 @@ package be.intecbrussel.servlet.post;
 
 import be.intecbrussel.tools.SessionController;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,10 +13,12 @@ import java.io.IOException;
 @WebServlet(name = "logout", value="/logout")
 public class LogoutServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         // only use to test logout
+
         HttpSession session = req.getSession();
-        SessionController.addNewPageToSessionHistory(session, this.getServletName());
+        SessionController.addNewPageToSessionHistory(session, this.getServletName(), req.getQueryString());
+
         req.getSession().setAttribute("isLoggedIn", false);
         resp.sendRedirect(SessionController.getLastPage(session));
     }

@@ -39,4 +39,7 @@
         </jsp:include>
 
     </div>
+
+    <script src="resources/1-Front-End/home/js/collapsible.js"></script>
+
 </body>

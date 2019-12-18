@@ -143,14 +143,6 @@ public class Author implements EntityInterface {
         this.zipCode = author.zipCode;
     }
 
-    private void editProfile(){
-
-    }
-
-    private void deleteProfile(){
-
-    }
-
     @Override
     public String toString() {
         return "\nAuthor{" +

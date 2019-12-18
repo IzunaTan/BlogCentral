@@ -90,24 +90,8 @@ public class Blog implements EntityInterface {
         return message;
     }
 
-    private void editPost(){
-
-    }
-
-    private void deletePost(){
-
-    }
-
     public void addComment(Comment comment){
         this.comments.add(comment);
-    }
-
-    private void deleteComment(){
-
-    }
-
-    private void editComment(){
-
     }
 
     // Copies all the attributes from an blog object to this blog object

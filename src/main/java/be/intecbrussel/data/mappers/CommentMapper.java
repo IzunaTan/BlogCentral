@@ -2,7 +2,6 @@ package be.intecbrussel.data.mappers;
 
 import be.intecbrussel.data.EntityManagerFactoryProvider;
 import be.intecbrussel.data.GenericMapper;
-import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.model.entities.Comment;
 
 import javax.persistence.EntityManager;

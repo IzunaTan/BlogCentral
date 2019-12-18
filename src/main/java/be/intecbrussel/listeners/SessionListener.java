@@ -10,7 +10,7 @@ import java.util.List;
 // TODO learn about session TTL
 public class SessionListener implements HttpSessionListener {
     // A list containing all sessions online
-    private static List<HttpSession> sessionList = new ArrayList<>();
+    private static final List<HttpSession> sessionList = new ArrayList<>();
 
     @Override
     // When a user is online (session online), add it to the list

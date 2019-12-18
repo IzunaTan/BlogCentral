@@ -6,17 +6,18 @@ import be.intecbrussel.model.entities.Author;
 import javax.servlet.http.HttpSession;
 
 public class SessionController {
-    public static void addNewPageToSessionHistory(HttpSession session, String servletName) {
+    public static void addNewPageToSessionHistory(HttpSession session, String servletName, String query) {
         String currentPage = (String) session.getAttribute("currentPage");
+        String urlWithParams = (query == null || query.isEmpty()) ? servletName : servletName.concat("?").concat(query);
         if (currentPage == null) {
             session.setAttribute("lastPage", "home");
-            session.setAttribute("currentPage", servletName);
+            session.setAttribute("currentPage", urlWithParams);
         }
         else if (servletName.equals("login") || servletName.equals("register") || servletName.equals("logout"))
             session.setAttribute("lastPage", currentPage);
         else {
             session.setAttribute("lastPage", session.getAttribute("currentPage"));
-            session.setAttribute("currentPage", servletName);
+            session.setAttribute("currentPage", urlWithParams);
         }
 
 
