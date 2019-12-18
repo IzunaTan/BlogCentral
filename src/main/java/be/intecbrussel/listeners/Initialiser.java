@@ -41,13 +41,9 @@ public class Initialiser implements ServletContextListener {
         );
 
         Blog blog2=new Blog(author2,"What is artificial intelligence?"," The term 'artificial intelligence' generally means artificial thinking, and AI techniques are being employed for purposes of managing data and for organizing the world's data. ");
-        blog2.addComments(
-        new Comment(author6,"Why is there a need for research? I don't understand"),
-        new Comment(author2,"Advances in technology will enable computers to recognize objects, manipulate images and to think creatively about learning new problems. However, computing"),
-        new Comment(author3,"In the age of computers, robots are not really going to destroy jobs in this country, and even if they do, they're not going to destroy them in the same way that cars and airlines did, where they displaced people."),
-        new Comment(author2,"But there is more to it than that."),
-        new Comment(author2,"By 2025, the robot revolution will really be over. In fact, it will have played out in human society much more profoundly than we realized, and this is a huge story.")
-        );
+        blog2.addComments(new Comment(author6,"Why is there a need for research? I don't understand").addComments(new Comment(author2,"Advances in technology will enable computers to recognize objects, manipulate images and to think creatively about learning new problems. However, computing"),
+        new Comment(author3,"In the age of computers, robots are not really going to destroy jobs in this country, and even if they do, they're not going to destroy them in the same way that cars and airlines did, where they displaced people.").addComments(new Comment(author2,"But there is more to it than that."))),
+        new Comment(author2,"By 2025, the robot revolution will really be over. In fact, it will have played out in human society much more profoundly than we realized, and this is a huge story."));
 
         Blog blog3=new Blog(author5,"Java is the best programming language.","Computing data formats has undergone considerable research and development over the last decade.");
         Comment comment07=new Comment(author2,"I recently joined to a talk. The bulk of the talk was devoted to her role in developing Oracle JDK and Java development tools such as J2SE. These tools have drastically reduced development time and is responsible for the growth of the Java ecosystem.");

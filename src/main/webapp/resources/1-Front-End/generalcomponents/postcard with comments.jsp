@@ -29,13 +29,12 @@
       </div>
     </fieldset>
 
-    <ul id="comments">
+    <ul id="comments" style="padding-left: 0px; padding-right: 20px;">
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
       <c:forEach items="${requestScope.blog_comments}" var="comment">
         <c:set var="comment" value="${comment}" scope="request" />
         <c:import url="../generalcomponents/commentwithcomments.jsp" />
-        <h1>test</h1>
       </c:forEach>
     </ul>
 

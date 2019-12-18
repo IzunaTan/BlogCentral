@@ -5,6 +5,7 @@ import be.intecbrussel.model.EntityInterface;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -27,6 +28,11 @@ public class Comment implements EntityInterface {
         this.message = message;
         this.likeCount = 0;
         this.comments = new ArrayList<>();
+    }
+
+    public Comment addComments(Comment... comments){
+        Arrays.stream(comments).forEach(e -> this.comments.add(e));
+        return this;
     }
 
     public Comment(){
