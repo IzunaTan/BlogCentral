@@ -37,6 +37,7 @@
             <jsp:param name="message" value="message" />
         </jsp:include>
         <jsp:include page="../generalcomponents/standalonecomment.jsp" />
+        <jsp:include page="../generalcomponents/standaloneauthor.jsp" />
 
     </div>
 </body>
