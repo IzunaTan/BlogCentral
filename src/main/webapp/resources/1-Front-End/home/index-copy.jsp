@@ -26,24 +26,25 @@
 
 <body>
 <jsp:include page="../generalcomponents/sidebar.jsp"></jsp:include>
-<!-- HEADER Section -->
 <jsp:include page="../generalcomponents/header.jsp"></jsp:include>
+
+<!-- HEADER Section -->
 <!-- End Header-Section  -->
 
 <!-- Main-Section -->
 <main class="grid-container">
     
     <!-- SORT Header -->
-    <div class="section">
-        <button type="button" class="collapsible">Sort</button>
-        <div class="content">
-            <div class="sortMenu">
-                <li><a href="#">POPULAR</a></li>
-                <li><a href="#">LATEST</a></li>
-                <li><a href="#">ELDEST</a></li>
-            </div>
-        </div>
-
+    <div class="collapse">
+    <button type="button" class="collapsible">Sort</button>
+    <div class="content">
+      <div class="sortMenu">
+        <li><a href="#">POPULAR</a></li>
+        <li><a href="#">LATEST</a></li>
+        <li><a href="#">ELDEST</a></li>
+      </div>
+    </div>
+  </div>
         <!-- USER Container -->
         <div class="container">
             <div class="userComment">
@@ -91,11 +92,11 @@
                                     <i class="fa fa-thumbs-up"></i>
                                 </a>
 
-                                <span class="likes-count" title="Likes"></span>
-                                <a class="reply-icon" title="Comment" href=""><i
-                                        class="fa fa-comment"></i></a>
-                                <a class="tags-icon" title="Tags" href=""><i class="fa fa-tags"></i></a>&nbsp;
-                                <a title="Bookmark" href=""><i class="fa fa-bookmark" aria-hidden="true"></i></a>
+                                <span class="likes-count" title="Likes">111</span>
+            <a class="reply-icon" title="Comment" href="" onclick="alertFunction()"><i class="fa fa-comment"></i></a>
+            <a class="tags-icon" title="Tags" href="" onclick="alertFunction()"><i class="fa fa-tags"></i></a>&nbsp;
+            <a class="tags-icon" title="Bookmark" href="" onclick="alertFunction()"><i class="fa fa-bookmark"
+                aria-hidden="true"></i></a>
 
                             </div>
                             </fieldset>
@@ -121,7 +122,6 @@
     </div>
 </main>
 <script src="resources/1-Front-End/home/js/collapsible.js"></script>
-</script>
 </body>
 
 </html>

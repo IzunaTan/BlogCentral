@@ -4,6 +4,7 @@ import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.exceptions.AuthorNotFoundException;
 import be.intecbrussel.model.entities.Blog;
 import be.intecbrussel.tools.SessionController;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,42 +21,34 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Get the user's session
         HttpSession session = req.getSession();
+        SessionController.addNewPageToSessionHistory(session, this.getServletName());
 
-           // Create an instance of the genericmapper user as the class
+
+        // Create an instance of the genericmapper user as the class
         GenericMapper<Blog> dao = new GenericMapper<>();
-        Blog blog=new Blog();
 
 
         // Create list of cards to be read from database
-        List<Blog> blogsDynamic=new ArrayList<>();
-
-        List<String>blogList=new ArrayList<>();
+        List<Blog> blogsDynamic = new ArrayList<>();
 
         // Read first 6 blogs from blogcentral database
-        for (int i = 1; i < 7; i++) {
+        for (int i = 0; i < 6; i++) {
 
             try {
-
-                Blog blogRead = dao.getObject(blog, i);
+                Blog blogRead = dao.getObject(new Blog(), i);
                 blogsDynamic.add(blogRead);
+            }
 
-//                blogList.add(blogRead.getAuthor().getUsername());
-//                blogList.add(blogRead.getTitle());
-//                blogList.add(blogRead.getMessage());
-//                blogList.add((blogRead.getLikeCount()));
-
-            } catch (AuthorNotFoundException e) {
+            catch (AuthorNotFoundException e) {
                 e.printStackTrace();
             }
         }
 
 //        req.setAttribute("bloglist",blogList);
-        req.setAttribute("blogsDynamic",blogsDynamic);
+        req.setAttribute("blogsDynamic", blogsDynamic);
 
-        // Adds the current page to page history
-        SessionController.addNewPageToSessionHistory(session, this.getServletName());
         // Load the home page
-        req.getRequestDispatcher("resources/1-Front-End/home/index-copy.jsp").forward(req, resp);
+        req.getRequestDispatcher("resources/1-Front-End/home/index.jsp").forward(req, resp);
 
     }
 }

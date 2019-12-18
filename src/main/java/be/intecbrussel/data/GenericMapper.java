@@ -5,6 +5,7 @@ import be.intecbrussel.model.EntityInterface;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.util.List;
 
 // Uses T extends interface so the only classes T can be are Author Blog and Comments
 public class GenericMapper<T extends EntityInterface> {
