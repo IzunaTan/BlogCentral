@@ -30,7 +30,7 @@
         <jsp:include page="../generalcomponents/sidebar.jsp" />
         <jsp:include page="../generalcomponents/header.jsp" />
         <jsp:include page="../home/homecomponents/sortheader.jsp" />
-        <jsp:include page="../generalcomponents/postcard.jsp">
+        <jsp:include page="../generalcomponents/postcard with comments.jsp">
             <jsp:param name="username" value="username" />
             <jsp:param name="title" value="title" />
             <jsp:param name="likes" value="1337" />

@@ -8,12 +8,22 @@ import javax.servlet.http.HttpSession;
 public class SessionController {
     public static void addNewPageToSessionHistory(HttpSession session, String servletName) {
         String currentPage = (String) session.getAttribute("currentPage");
-        if (currentPage == null || currentPage.equals("login")|| currentPage.equals("register"))
+        if (currentPage == null) {
             session.setAttribute("lastPage", "home");
-        else if (session.getAttribute("currentPage") != servletName)
+            session.setAttribute("currentPage", servletName);
+        }
+        else if (servletName.equals("login") || servletName.equals("register") || servletName.equals("logout"))
+            session.setAttribute("lastPage", currentPage);
+        else {
             session.setAttribute("lastPage", session.getAttribute("currentPage"));
+            session.setAttribute("currentPage", servletName);
+        }
 
-        session.setAttribute("currentPage", servletName);
+
+
+        System.out.println("Last Page -> " + session.getAttribute("lastPage"));
+        System.out.println("Current Page -> " + session.getAttribute("currentPage"));
+
     }
 
     public static Boolean isLoggedIn(HttpSession session) {

@@ -4,7 +4,7 @@
 <header class="">
     <div class="header-top">
         <!-- LOGO  Btn -->
-        <h1 class="logo"><a href="Logo">BlogCentral</a></h1>
+        <h1 class="logo"><a href="home">BlogCentral</a></h1>
         <!-- LOGIN -->
         <c:choose>
             <c:when test="${!isLoggedIn}">
