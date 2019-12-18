@@ -13,7 +13,7 @@ public class Blog implements EntityInterface {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @NotNull
     private Author author;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -75,6 +75,12 @@ public class Blog implements EntityInterface {
         return id;
     }
 
+    @Override
+    public Object setId(String id) {
+        this.id = Integer.parseInt(id);
+        return this;
+    }
+
     public Author getAuthor() {
         return author;
     }
@@ -98,8 +104,11 @@ public class Blog implements EntityInterface {
     // Copies all the attributes from an blog object to this blog object
     public void cloneFrom(EntityInterface blogg) {
         Blog blog = (Blog) blogg;
-        this.author = blog.author;
-        this.comments = blog.comments;
+        if (blog.getComments().size() != this.comments.size()) {
+            Comment comment = blog.getComments().get(((Blog) blogg).getComments().size() - 1);
+            comment.setAuthor(author);
+            comments.add(comment);
+        }
         this.likeCount = blog.likeCount;
         this.message = blog.message;
     }

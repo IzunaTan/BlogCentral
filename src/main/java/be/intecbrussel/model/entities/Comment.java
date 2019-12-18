@@ -1,6 +1,8 @@
 package be.intecbrussel.model.entities;
 
 import be.intecbrussel.model.EntityInterface;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.OnDelete;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,7 +15,7 @@ public class Comment implements EntityInterface {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @NotNull
     private Author author;
     @NotNull
@@ -73,6 +75,12 @@ public class Comment implements EntityInterface {
         return id;
     }
 
+    @Override
+    public Object setId(String id) {
+        this.id = Integer.parseInt(id);
+        return this;
+    }
+
     public Author getAuthor() {
         return author;
     }
@@ -88,9 +96,9 @@ public class Comment implements EntityInterface {
     // Copies all the attributes from an comment object to this comment object
     public void cloneFrom(EntityInterface commentt) {
         Comment comment = (Comment) commentt;
-        this.author = comment.author;
         this.message = comment.message;
         this.likeCount = comment.likeCount;
+        comments.add(((Comment) commentt).getComments().get(((Comment) commentt).getComments().size() - 1));
     }
 
     @Override

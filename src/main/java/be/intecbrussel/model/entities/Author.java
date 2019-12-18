@@ -163,6 +163,12 @@ public class Author implements EntityInterface {
         return username;
     }
 
+    @Override
+    public Object setId(String username) {
+        this.username = username;
+        return this;
+    }
+
     public boolean checkPW(String plainTextPassword){
         return BCrypter.checkPassword(plainTextPassword, password);
     }

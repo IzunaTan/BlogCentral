@@ -2,7 +2,10 @@ package be.intecbrussel.data.mappers;
 
 import be.intecbrussel.data.EntityManagerFactoryProvider;
 import be.intecbrussel.data.GenericMapper;
+import be.intecbrussel.exceptions.AuthorNotFoundException;
+import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.model.entities.Blog;
+import be.intecbrussel.model.entities.Comment;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -19,6 +22,20 @@ public class BlogMapper extends GenericMapper {
         query.setParameter("tags", tags);
 
         return query.getResultList();
+    }
+
+    public void addCommentToBlog(Integer blogID, String nameAuthor, String comment){
+        EntityManager em = EntityManagerFactoryProvider.getEM();
+        EntityTransaction transaction = em.getTransaction();
+
+        transaction.begin();
+        Blog dbObj = em.find(new Blog().getClass(), blogID);
+        Author dbAuthor = em.find(new Author().getClass(), nameAuthor);
+        dbObj.addComments(new Comment(dbAuthor, comment));
+        em.merge(dbObj);
+        transaction.commit();
+
+        em.close();
     }
 
 }

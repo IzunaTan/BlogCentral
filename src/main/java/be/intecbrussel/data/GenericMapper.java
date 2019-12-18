@@ -2,6 +2,7 @@ package be.intecbrussel.data;
 
 import be.intecbrussel.exceptions.AuthorNotFoundException;
 import be.intecbrussel.model.EntityInterface;
+import org.hibernate.Session;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
