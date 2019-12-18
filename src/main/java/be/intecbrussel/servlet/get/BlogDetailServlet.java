@@ -1,5 +1,9 @@
 package be.intecbrussel.servlet.get;
 
+import be.intecbrussel.data.GenericMapper;
+import be.intecbrussel.data.mappers.BlogMapper;
+import be.intecbrussel.exceptions.AuthorNotFoundException;
+import be.intecbrussel.model.entities.Blog;
 import be.intecbrussel.tools.SessionController;
 
 import javax.servlet.ServletException;
@@ -18,6 +22,19 @@ public class BlogDetailServlet extends HttpServlet {
 
         SessionController.addNewPageToSessionHistory(session, this.getServletName());
 
-        req.getRequestDispatcher("resources/1-Front-End/commenting-system/commentingsystem.jsp").forward(req, resp);
+        Integer idBlog = Integer.valueOf(req.getParameter("id"));
+
+        GenericMapper<Blog> bm = new BlogMapper();
+
+        try {
+            Blog blog = bm.getObject(new Blog(), idBlog);
+
+            req.setAttribute("blog", blog);
+
+            req.getRequestDispatcher("resources/1-Front-End/commenting-system/commentingsystem.jsp").forward(req, resp);
+        } catch (AuthorNotFoundException e) {
+            resp.sendRedirect(SessionController.getLastPage(session));
+        }
+
     }
 }

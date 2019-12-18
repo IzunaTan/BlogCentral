@@ -31,10 +31,11 @@
         <jsp:include page="../generalcomponents/header.jsp" />
         <jsp:include page="../home/homecomponents/sortheader.jsp" />
         <jsp:include page="../generalcomponents/postcard with comments.jsp">
-            <jsp:param name="username" value="username" />
-            <jsp:param name="title" value="title" />
-            <jsp:param name="likes" value="1337" />
-            <jsp:param name="message" value="message" />
+            <jsp:param name="id" value="${blog.id}" />
+            <jsp:param name="username" value="${blog.author.username}" />
+            <jsp:param name="title" value="${blog.title}" />
+            <jsp:param name="likes" value="${blog.likeCount}" />
+            <jsp:param name="message" value="${blog.message}" />
         </jsp:include>
 
     </div>
