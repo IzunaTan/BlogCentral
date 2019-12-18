@@ -27,16 +27,20 @@
 
 <body>
     <div class="container">
-        <jsp:include page="../generalcomponents/sidebar.jsp" />
-        <jsp:include page="../generalcomponents/header.jsp" />
-        <jsp:include page="../home/homecomponents/sortheader.jsp" />
-        <jsp:include page="../generalcomponents/postcard with comments.jsp">
-            <jsp:param name="id" value="${blog.id}" />
-            <jsp:param name="username" value="${blog.author.username}" />
-            <jsp:param name="title" value="${blog.title}" />
-            <jsp:param name="likes" value="${blog.likeCount}" />
-            <jsp:param name="message" value="${blog.message}" />
-        </jsp:include>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+        <c:set var="id" value="${blog.id}" scope="request" />
+        <c:set var="username" value="${blog.author.username}" scope="request" />
+        <c:set var="title" value="${blog.title}" scope="request" />
+        <c:set var="likes" value="${blog.likeCount}" scope="request" />
+        <c:set var="message" value="${blog.message}" scope="request" />
+        <c:set var="comments" value="${blog.comments}" scope="request" />
+
+        <c:import url="../generalcomponents/sidebar.jsp" />
+        <c:import url="../generalcomponents/header.jsp" />
+        <c:import url="../home/homecomponents/sortheader.jsp" />
+        <c:import url="../generalcomponents/postcard with comments.jsp" />
+
 
     </div>
 
