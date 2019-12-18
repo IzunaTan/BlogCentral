@@ -32,10 +32,7 @@
     <ul id="comments">
       <jsp:include page="comment.jsp" />
       <jsp:include page="comment.jsp" />
-      <jsp:include page="comment.jsp" />
-      <jsp:include page="comment.jsp" />
-      <jsp:include page="comment.jsp" />
-      <jsp:include page="comment.jsp" />
+
     </ul>
 
   </div>
