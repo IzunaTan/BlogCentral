@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en">
 
 <head>
@@ -53,15 +52,18 @@
 
                 <%--            The cards are looping below --%>
 
-                <c:forEach items="${bloglikelist}" var="bloglikelist">
-
-                </c:forEach>
-                <c:forEach items="${blogsDynamic}" var="blogloaded" varStatus="loop">
+                <c:forEach items="${blogsDynamic}" var="blogloaded">
 
                     <c:set var="iteratedusername" value="${blogloaded.author.username}"/>
                     <c:set var="iteratedtitle" value="${blogloaded.title}"/>
                     <c:set var="iteratedlike" value="${blogloaded.likeCount}"/>
                     <c:set var="iteratedmessage" value="${blogloaded.message}"/>
+
+                    <%--                    <c:set var="iteratedusername" value="${blogloaded.author.username}"/>--%>
+                    <%--                    <c:set var="iteratedtitle" value="${blogloaded.title}"/>--%>
+                    <%--                    <c:set var="iteratedlike" value="${blogloaded.likeCount}"/>--%>
+                    <%--                    <c:set var="iteratedmessage" value="${blogloaded.message}"/>--%>
+                    <%--                    <c:set var="iteratednoofcomments" value="${fn:length(blogloaded.comments)}"/>--%>
 
                     <%--             The division below is card to be repeated in our loop--%>
 
@@ -86,11 +88,11 @@
                                         ${iteratedmessage}
                                 </p>
                                 <div class="card-icons">
-                                <a class="like-icon" title="Like" href="#">${iteratedlike}
+                                <a class="like-icon" title="Like" href="#">
                                     <i class="fa fa-thumbs-up"></i>
                                 </a>
 
-                                <span class="likes-count" title="Likes" onclick="${bloglikelist[loop.count]++;}">${iteratedlike}</span>
+                                <span class="likes-count" title="Likes">111</span>
             <a class="reply-icon" title="Comment" href="" onclick="alertFunction()"><i class="fa fa-comment"></i></a>
             <a class="tags-icon" title="Tags" href="" onclick="alertFunction()"><i class="fa fa-tags"></i></a>&nbsp;
             <a class="tags-icon" title="Bookmark" href="" onclick="alertFunction()"><i class="fa fa-bookmark"
