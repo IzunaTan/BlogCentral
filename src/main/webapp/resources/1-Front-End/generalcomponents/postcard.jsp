@@ -1,5 +1,5 @@
 <div class="card">
-
+  
   <!-- CARD Left -->
   <div class="card-left">
     <% String username = request.getParameter("username"); %>
