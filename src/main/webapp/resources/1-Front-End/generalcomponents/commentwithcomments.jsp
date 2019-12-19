@@ -33,8 +33,19 @@
       <p>${requestScope.comment.message}</p>
       <footer class="comment__action--footer">
         <a href="#" title="like" class="comment__action">like</a>
-        <a href="#" title="reply" class="comment__action">reply</a>
+        <a style="visibility: visible; margin: 0; padding: 0;" title="reply"
+          class="comment__action collapsible">reply</a>
+
+        <form style="display: none;" id="comment__form" action="sendcommentonpost" method="post"
+          class="comments__form_form" style="padding-top:15px">
+          <textarea style="resize: vertical;" id="comment__textarea" placeholder="Join the discussion..." cols="49"
+            rows="4" maxlength="250" name="usercomment">
+          </textarea>
+          <input type="hidden" name="id" value="${requestScope.blog.id}" />
+          <input type="submit" value="reply" />
+        </form>
       </footer>
+
     </div>
   </div>
   <ul class="comment__replies">

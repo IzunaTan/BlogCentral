@@ -44,6 +44,8 @@
 
     </div>
 
+    <a href="" onclick="topFunction()" id="myBtn" title="Back to top"><i class="fa fa-arrow-up"></i></a>
+
     <script src="resources/1-Front-End/home/js/collapsible.js"></script>
 
 </body>
