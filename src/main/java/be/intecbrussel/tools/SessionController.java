@@ -1,6 +1,7 @@
 package be.intecbrussel.tools;
 
 import be.intecbrussel.data.mappers.AuthorMapper;
+import be.intecbrussel.data.mappers.VisitorMapper;
 import be.intecbrussel.exceptions.AuthorNotLoggedInException;
 import be.intecbrussel.model.entities.Author;
 
@@ -93,5 +94,19 @@ public class SessionController {
         AuthorMapper am = new AuthorMapper();
         int i = am.getAmountOfAuthors();
         sce.getServletContext().setAttribute("totalCount", i);
+    }
+
+    public static void addAVisitor(HttpSession session) {
+        VisitorMapper vm = new VisitorMapper();
+        int count = vm.amountOfVisitors();
+        count = count + 1;
+        vm.updateVisitor(count);
+        session.getServletContext().setAttribute("totalVisits", count);
+    }
+
+    public static void updateTotalVisits(ServletContextEvent sce) {
+        VisitorMapper vm = new VisitorMapper();
+        int count = vm.amountOfVisitors();
+        sce.getServletContext().setAttribute("totalVisits", count);
     }
 }

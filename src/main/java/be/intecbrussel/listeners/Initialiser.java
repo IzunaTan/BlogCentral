@@ -94,7 +94,7 @@ public class Initialiser implements ServletContextListener {
 
         // End. If the lines above are executed, the database will be full of data.
         SessionController.updateTotalRegisters(sce);
-
+        SessionController.updateTotalVisits(sce);
     }
 
     @Override

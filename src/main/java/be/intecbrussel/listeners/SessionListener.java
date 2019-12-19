@@ -1,5 +1,7 @@
 package be.intecbrussel.listeners;
 
+import be.intecbrussel.tools.SessionController;
+
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
@@ -19,6 +21,7 @@ public class SessionListener implements HttpSessionListener {
         sessionList.add(se.getSession());
         onlineCount++;
         se.getSession().getServletContext().setAttribute("onlineCount", onlineCount);
+        SessionController.addAVisitor(se.getSession());
     }
 
     @Override
