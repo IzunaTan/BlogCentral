@@ -26,4 +26,6 @@ public class DeleteCommentServlet extends HttpServlet {
         resp.sendRedirect(SessionController.getLastPage(session));
 
     }
+
+
 }
