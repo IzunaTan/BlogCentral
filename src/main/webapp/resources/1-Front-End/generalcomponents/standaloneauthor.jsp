@@ -8,7 +8,7 @@
     </div>
     <div class="comment__content">
       <div>
-        <a href="#">
+        <a href="author?username=${requestScope.username}">
           <span class="user__link">${requestScope.username}</span>
         </a>
       </div>
