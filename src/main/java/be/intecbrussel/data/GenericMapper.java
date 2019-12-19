@@ -75,18 +75,4 @@ public class GenericMapper<T extends EntityInterface> {
         return dbObj;
     }
 
-    //    public List<T> getObjectsAsList(T obj,int indexId, int offset) {
-//
-//        EntityManager em = EntityManagerFactoryProvider.getEM();
-//        EntityTransaction transaction = em.getTransaction();
-//
-//        transaction.begin();
-//        T dbObj = (T) em.find(obj.getClass(), indexId);
-//        if (dbObj == null)
-//            throw new AuthorNotFoundException();
-//        transaction.commit();
-//
-//        em.close();
-//        return dbObj;
-//    }
 }

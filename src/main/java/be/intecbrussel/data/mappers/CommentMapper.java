@@ -37,6 +37,7 @@ public class CommentMapper extends GenericMapper {
         com = em.merge(com);
         addConnectionViaJDBC_BC(blogID, com.getId());
         et.commit();
+        em.close();
     }
 
     private void addConnectionViaJDBC_BC(Integer blogID, Object id) throws ClassNotFoundException, SQLException {
@@ -58,6 +59,7 @@ public class CommentMapper extends GenericMapper {
         com = em.merge(com);
         addConnectionViaJDBC_CC(commentID, com.getId());
         et.commit();
+        em.close();
     }
 
     private void addConnectionViaJDBC_CC(Integer commentID, Object id) throws ClassNotFoundException {
