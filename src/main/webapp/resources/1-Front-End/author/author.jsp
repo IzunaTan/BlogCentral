@@ -37,7 +37,7 @@
     <jsp:include page="../home/homecomponents/sortheader.jsp" />
 
     <!-- POST Card -->
-    <%@ taglib uri="http://usernamejava.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
     <c:forEach items="${blogs}" var="blogloaded">
