@@ -2,7 +2,6 @@ package be.intecbrussel.data.mappers;
 
 import be.intecbrussel.data.EntityManagerFactoryProvider;
 import be.intecbrussel.data.GenericMapper;
-import be.intecbrussel.exceptions.AuthorNotFoundException;
 import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.model.entities.Blog;
 import be.intecbrussel.model.entities.Comment;
@@ -18,10 +17,12 @@ public class BlogMapper extends GenericMapper {
         EntityTransaction et = em.getTransaction();
 
         et.begin();
-        TypedQuery<Blog> query = em.createQuery("SELECT b FROM Blog WHERE title LIKE %:tags% OR message LIKE %:tags%", Blog.class);
-        query.setParameter("tags", tags);
+        TypedQuery<Blog> query = em.createQuery("SELECT b FROM Blog b WHERE b.title LIKE :tags OR b.message LIKE :tags", Blog.class);
+        query.setParameter("tags", "%"+tags+"%");
+        List<Blog> list = query.getResultList();
 
-        return query.getResultList();
+        em.close();
+        return list;
     }
 
     public void addCommentToBlog(Integer blogID, String nameAuthor, String comment){

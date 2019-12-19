@@ -15,9 +15,11 @@ public class CommentMapper extends GenericMapper {
         EntityTransaction et = em.getTransaction();
 
         et.begin();
-        TypedQuery<Comment> query = em.createQuery("SELECT c FROM Comment WHERE username like %:tags%", Comment.class);
-        query.setParameter("tags", tags);
+        TypedQuery<Comment> query = em.createQuery("SELECT c FROM Comment c WHERE c.message LIKE :tags", Comment.class);
+        query.setParameter("tags", "%"+tags+"%");
+        List<Comment> list = query.getResultList();
 
-        return query.getResultList();
+        em.close();
+        return list;
     }
 }

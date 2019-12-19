@@ -15,9 +15,12 @@ public class AuthorMapper extends GenericMapper {
         EntityTransaction et = em.getTransaction();
 
         et.begin();
-        TypedQuery<Author> query = em.createQuery("SELECT a FROM Author WHERE username like %:tags%", Author.class);
-        query.setParameter("tags", tags);
+        TypedQuery<Author> query = em.createQuery("SELECT a FROM Author a WHERE a.username LIKE :tags", Author.class);
+        query.setParameter("tags", "%"+tags+"%");
+        List<Author> list = query.getResultList();
 
-        return query.getResultList();
+
+        em.close();
+        return list;
     }
 }

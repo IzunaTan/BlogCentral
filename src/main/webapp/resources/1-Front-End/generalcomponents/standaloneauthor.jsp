@@ -9,7 +9,7 @@
     <div class="comment__content">
       <div>
         <a href="#">
-          <span class="user__link">Eva</span>
+          <span class="user__link">${requestScope.username}</span>
         </a>
       </div>
     </div>
