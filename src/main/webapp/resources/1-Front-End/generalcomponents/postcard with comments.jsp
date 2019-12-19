@@ -2,7 +2,7 @@
 
   <!-- CARD Left -->
   <div class="card-left">
-    <a class="card-left-title" href="#">${requestScope.blog_username}</a>
+    <a class="card-left-title" href="author?username=<%=username%>">${requestScope.blog_username}</a>
     <i class="fa fa-user fa-lg"></i>
     <!-- <img src="https://switchfully.com/img/switchfully_small_logo.png"> -->
     <span>Some sub-text</span>

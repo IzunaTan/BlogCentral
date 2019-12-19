@@ -25,6 +25,20 @@ public class BlogMapper extends GenericMapper {
         return list;
     }
 
+    public List<Blog> getAllBlogsFromAuthor(Author author){
+        EntityManager em = EntityManagerFactoryProvider.getEM();
+        EntityTransaction transaction = em.getTransaction();
+        List<Blog> list;
+
+        transaction.begin();
+        TypedQuery<Blog> query = em.createQuery("SELECT b FROM Blog b WHERE author_username LIKE :username", Blog.class);
+        query.setParameter("username", author.getUsername());
+        list = query.getResultList();
+
+        em.close();
+        return list;
+    }
+
     public void addCommentToBlog(Integer blogID, String nameAuthor, String comment){
         EntityManager em = EntityManagerFactoryProvider.getEM();
         EntityTransaction transaction = em.getTransaction();

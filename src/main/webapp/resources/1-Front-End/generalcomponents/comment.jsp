@@ -7,7 +7,7 @@
   </div>
   <div class="comment__content">
     <div>
-      <a href="#">
+      <a href="author?username=${requestScope.comment.author.username}">
         <span class="user__link">Eva</span>
       </a>
       <span class="comment__pub-date"> - posted 1 week ago</span>
