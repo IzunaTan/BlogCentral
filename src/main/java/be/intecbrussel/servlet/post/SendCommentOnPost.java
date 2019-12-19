@@ -9,6 +9,7 @@ import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.model.entities.Blog;
 import be.intecbrussel.model.entities.Comment;
 import be.intecbrussel.tools.SessionController;
+import org.hibernate.Session;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,6 +26,8 @@ public class SendCommentOnPost extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         CommentMapper cm = new CommentMapper();
+
+        SessionController.addNewPageToSessionHistory(session, this.getServletName(), req.getQueryString());
 
         String commentToAdd = req.getParameter("usercomment");
 

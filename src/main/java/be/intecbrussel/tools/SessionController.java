@@ -13,7 +13,7 @@ public class SessionController {
             session.setAttribute("lastPage", "home");
             session.setAttribute("currentPage", urlWithParams);
         }
-        else if (servletName.equals("login") || servletName.equals("register") || servletName.equals("logout") || servletName.equals("deletecomment"))
+        else if (servletName.equals("login") || servletName.equals("register") || servletName.equals("logout") || servletName.equals("sendcomment") || servletName.equals("deletecomment"))
             session.setAttribute("lastPage", currentPage);
         else {
             session.setAttribute("lastPage", session.getAttribute("currentPage"));
