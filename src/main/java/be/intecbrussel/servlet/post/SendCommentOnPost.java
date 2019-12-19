@@ -29,24 +29,28 @@ public class SendCommentOnPost extends HttpServlet {
 
         SessionController.addNewPageToSessionHistory(session, this.getServletName(), req.getQueryString());
 
-        String commentToAdd = req.getParameter("usercomment");
+        if(!SessionController.isLoggedIn(session)){
+            resp.sendRedirect("login");
+        } else {
 
-        if (!commentToAdd.trim().isEmpty()) {
-            Integer blogID = Integer.valueOf(req.getParameter("id"));
-            String authorName;
-            try {
-                authorName = SessionController.getAuthor(session).getUsername();
-                cm.addCommentToBlog(blogID, authorName, commentToAdd);
-            } catch (AuthorNotLoggedInException e) {
-                //shoudlnt happen
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+            String commentToAdd = req.getParameter("usercomment");
+
+            if (!commentToAdd.trim().isEmpty()) {
+                Integer blogID = Integer.valueOf(req.getParameter("id"));
+                String authorName;
+                try {
+                    authorName = SessionController.getAuthor(session).getUsername();
+                    cm.addCommentToBlog(blogID, authorName, commentToAdd);
+                } catch (AuthorNotLoggedInException e) {
+                    //shoudlnt happen
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
             }
-
+            resp.sendRedirect(SessionController.getLastPage(session));
         }
-        resp.sendRedirect(SessionController.getLastPage(session));
-
     }
 }

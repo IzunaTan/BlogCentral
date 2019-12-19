@@ -51,6 +51,8 @@ public class RegisterPostServlet extends HttpServlet {
         // Add the user to the database using the genericmapper object
         author = dao.addObject(author);
 
+        SessionController.updateTotalRegisters(session);
+
         // Logs in the user
         SessionController.logsIn(session, author);
         // Sends the user back to his last visited page

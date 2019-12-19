@@ -35,17 +35,40 @@ public class CommentMapper extends GenericMapper {
         et.begin();
         Comment com = new Comment(em.find(new Author().getClass(), authorName), commentToAdd);
         com = em.merge(com);
-        addConnectionViaJDBC(blogID, com.getId());
+        addConnectionViaJDBC_BC(blogID, com.getId());
         et.commit();
     }
 
-    private void addConnectionViaJDBC(Integer blogID, Object id) throws ClassNotFoundException, SQLException {
+    private void addConnectionViaJDBC_BC(Integer blogID, Object id) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/blogcentral?serverTimezone=UTC", "intecpotato", "grp")){
             PreparedStatement ps = conn.prepareStatement("INSERT INTO Blog_Comment VALUES (?, ?)");
             ps.setInt(1, blogID);
             ps.setInt(2, (Integer) id);
             ps.execute();
+        }
+    }
+
+    public void addCommentToComment(Integer commentID, String authorName, String commentToAdd) throws ClassNotFoundException {
+        EntityManager em = EntityManagerFactoryProvider.getEM();
+        EntityTransaction et = em.getTransaction();
+
+        et.begin();
+        Comment com = new Comment(em.find(new Author().getClass(), authorName), commentToAdd);
+        com = em.merge(com);
+        addConnectionViaJDBC_CC(commentID, com.getId());
+        et.commit();
+    }
+
+    private void addConnectionViaJDBC_CC(Integer commentID, Object id) throws ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/blogcentral?serverTimezone=UTC", "intecpotato", "grp")){
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO Comment_Comment VALUES (?, ?)");
+            ps.setInt(1, commentID);
+            ps.setInt(2, (Integer) id);
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

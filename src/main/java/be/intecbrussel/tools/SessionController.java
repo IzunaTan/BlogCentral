@@ -1,8 +1,10 @@
 package be.intecbrussel.tools;
 
+import be.intecbrussel.data.mappers.AuthorMapper;
 import be.intecbrussel.exceptions.AuthorNotLoggedInException;
 import be.intecbrussel.model.entities.Author;
 
+import javax.servlet.ServletContextEvent;
 import javax.servlet.http.HttpSession;
 
 public class SessionController {
@@ -13,7 +15,7 @@ public class SessionController {
             session.setAttribute("lastPage", "home");
             session.setAttribute("currentPage", urlWithParams);
         }
-        else if (servletName.equals("login") || servletName.equals("register") || servletName.equals("logout") || servletName.equals("sendcomment") || servletName.equals("deletecomment"))
+        else if (servletName.equals("login") || servletName.equals("register") || servletName.equals("logout") || servletName.equals("sendcommentonpost") || servletName.equals("sendcommentoncomment")|| servletName.equals("deletecomment"))
             session.setAttribute("lastPage", currentPage);
         else {
             session.setAttribute("lastPage", session.getAttribute("currentPage"));
@@ -81,4 +83,15 @@ public class SessionController {
         return currentPage;
     }
 
+    public static void updateTotalRegisters(HttpSession session){
+        AuthorMapper am = new AuthorMapper();
+        int i = am.getAmountOfAuthors();
+        session.getServletContext().setAttribute("totalCount", i);
+    }
+
+    public static void updateTotalRegisters(ServletContextEvent sce){
+        AuthorMapper am = new AuthorMapper();
+        int i = am.getAmountOfAuthors();
+        sce.getServletContext().setAttribute("totalCount", i);
+    }
 }

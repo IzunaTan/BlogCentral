@@ -23,4 +23,16 @@ public class AuthorMapper extends GenericMapper {
         em.close();
         return list;
     }
+
+    public int getAmountOfAuthors(){
+        EntityManager em = EntityManagerFactoryProvider.getEM();
+        EntityTransaction et = em.getTransaction();
+
+        et.begin();
+        TypedQuery<Author> query = em.createQuery("SELECT a FROM Author a", Author.class);
+        List<Author> list = query.getResultList();
+
+        em.close();
+        return list.size();
+    }
 }

@@ -6,6 +6,7 @@ import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.model.entities.Blog;
 import be.intecbrussel.model.entities.Comment;
 import be.intecbrussel.tools.BCrypter;
+import be.intecbrussel.tools.SessionController;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -13,9 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Initialiser implements ServletContextListener {
+
     // This code executes whenever the webapp is started (when cargo deploy)
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+
+
         Author author1= new Author("elarrosa","regis","Evaleen","Larrosa","elarrosa0@shop-pro.jp","Glacier Hill",5352,"Barra",2385);
         Author author2= new Author("anaulty", "down2earth", "Audy", "Naulty", "anaulty@baidu.com", "Rowland", 1, "Orlando", 3714);
         Author author3=new Author("dmarck", "com2com", "Denis", "Marck", "dmark@dailymail.co.uk", "Fulton", 5, "Libertad", 3295);
@@ -89,10 +93,11 @@ public class Initialiser implements ServletContextListener {
         bm.addObject(blog5);
 
         // End. If the lines above are executed, the database will be full of data.
+        SessionController.updateTotalRegisters(sce);
+
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        EntityManagerFactoryProvider.killEMFP();
     }
 }

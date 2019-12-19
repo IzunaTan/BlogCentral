@@ -23,7 +23,6 @@ public class HomeServlet extends HttpServlet {
         HttpSession session = req.getSession();
         SessionController.addNewPageToSessionHistory(session, this.getServletName(), req.getQueryString());
 
-
         // Create an instance of the genericmapper user as the class
         GenericMapper<Blog> dao = new GenericMapper<>();
 

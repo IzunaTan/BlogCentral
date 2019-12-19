@@ -36,12 +36,12 @@
         <a style="visibility: visible; margin: 0; padding: 0;" title="reply"
           class="comment__action collapsible">reply</a>
 
-        <form style="display: none;" id="comment__form" action="sendcommentonpost" method="post"
+        <form style="display: none;" id="comment__form" action="sendcommentoncomment" method="post"
           class="comments__form_form" style="padding-top:15px">
           <textarea style="resize: vertical;" id="comment__textarea" placeholder="Join the discussion..." cols="49"
             rows="4" maxlength="250" name="usercomment">
           </textarea>
-          <input type="hidden" name="id" value="${requestScope.blog.id}" />
+          <input type="hidden" name="id" value="${requestScope.comment.id}" />
           <input type="submit" value="reply" />
         </form>
       </footer>
