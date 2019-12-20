@@ -4,19 +4,17 @@ import be.intecbrussel.data.mappers.CommentMapper;
 import be.intecbrussel.exceptions.AuthorNotLoggedInException;
 import be.intecbrussel.tools.SessionController;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.SQLException;
 
 @WebServlet(name = "sendcommentoncomment", value = "/sendcommentoncomment")
 public class SendCommentOnComment extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
         CommentMapper cm = new CommentMapper();
 

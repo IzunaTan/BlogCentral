@@ -9,21 +9,11 @@ public class TotalVisitTracker {
     private int id = 1;
     private int totalVisits = 0;
 
-    public int getId() {
-        return id;
-    }
-
-    public TotalVisitTracker setId(int id) {
-        this.id = id;
-        return this;
-    }
-
     public int getTotalVisits() {
         return totalVisits;
     }
 
-    public TotalVisitTracker setTotalVisits(int totalVisits) {
+    public void setTotalVisits(int totalVisits) {
         this.totalVisits = totalVisits;
-        return this;
     }
 }

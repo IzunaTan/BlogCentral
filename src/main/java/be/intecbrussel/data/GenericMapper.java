@@ -2,7 +2,6 @@ package be.intecbrussel.data;
 
 import be.intecbrussel.exceptions.AuthorNotFoundException;
 import be.intecbrussel.model.EntityInterface;
-import org.hibernate.Session;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -21,20 +20,7 @@ public class GenericMapper<T extends EntityInterface> {
         return obj;
     }
 
-    public T removeObject(T obj) {
-        EntityManager em = EntityManagerFactoryProvider.getEM();
-        EntityTransaction tx = em.getTransaction();
-
-        tx.begin();
-        obj = (T) em.find(obj.getClass(), obj.getId());
-        em.remove(obj);
-        tx.commit();
-
-        em.close();
-        return obj;
-    }
-
-    public T removeObject(T obj, Object id) {
+    public void removeObject(T obj, Object id) {
         EntityManager em = EntityManagerFactoryProvider.getEM();
         EntityTransaction tx = em.getTransaction();
 
@@ -44,21 +30,6 @@ public class GenericMapper<T extends EntityInterface> {
         tx.commit();
 
         em.close();
-        return obj;
-    }
-
-    public T editObject(T obj) {
-        EntityManager em = EntityManagerFactoryProvider.getEM();
-        EntityTransaction transaction = em.getTransaction();
-
-        transaction.begin();
-        T dbObj = (T) em.find(obj.getClass(), obj.getId());
-        dbObj.cloneFrom(obj);
-        em.merge(dbObj);
-        transaction.commit();
-
-        em.close();
-        return dbObj;
     }
 
     public T getObject(T objTemplate, Object id) throws AuthorNotFoundException {

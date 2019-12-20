@@ -25,16 +25,15 @@ public class VisitorMapper {
         return i;
     }
 
-    public int updateVisitor(int count) {
+    public void updateVisitor(int count) {
         EntityManager em = EntityManagerFactoryProvider.getEM();
         EntityTransaction et = em.getTransaction();
 
         et.begin();
         TotalVisitTracker tvt = em.find(TotalVisitTracker.class, 1);
         tvt.setTotalVisits(count);
-        tvt = em.merge(tvt);
+        em.merge(tvt);
         et.commit();
         em.close();
-        return tvt.getTotalVisits();
     }
 }

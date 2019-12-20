@@ -23,13 +23,13 @@ public class AuthorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         SessionController.addNewPageToSessionHistory(session, this.getServletName(), req.getQueryString());
-        GenericMapper<Blog> bm = new BlogMapper();
+        BlogMapper bm = new BlogMapper();
         GenericMapper<Author> am = new AuthorMapper();
 
         String username = req.getParameter("username");
         try {
             Author authorFromPage = am.getObject(new Author(), username);
-            List<Blog> list = ((BlogMapper) bm).getAllBlogsFromAuthor(authorFromPage);
+            List<Blog> list = bm.getAllBlogsFromAuthor(authorFromPage);
             req.setAttribute("blogs", list);
             req.getRequestDispatcher("resources/1-Front-End/author/author.jsp").forward(req, resp);
         } catch (AuthorNotFoundException e) {

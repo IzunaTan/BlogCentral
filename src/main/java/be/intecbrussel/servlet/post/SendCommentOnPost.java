@@ -1,17 +1,9 @@
 package be.intecbrussel.servlet.post;
 
-import be.intecbrussel.data.GenericMapper;
-import be.intecbrussel.data.mappers.BlogMapper;
 import be.intecbrussel.data.mappers.CommentMapper;
-import be.intecbrussel.exceptions.AuthorNotFoundException;
 import be.intecbrussel.exceptions.AuthorNotLoggedInException;
-import be.intecbrussel.model.entities.Author;
-import be.intecbrussel.model.entities.Blog;
-import be.intecbrussel.model.entities.Comment;
 import be.intecbrussel.tools.SessionController;
-import org.hibernate.Session;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +15,7 @@ import java.sql.SQLException;
 @WebServlet(name = "sendcommentonpost", value = "/sendcommentonpost")
 public class SendCommentOnPost extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
         CommentMapper cm = new CommentMapper();
 
@@ -43,9 +35,7 @@ public class SendCommentOnPost extends HttpServlet {
                     cm.addCommentToBlog(blogID, authorName, commentToAdd);
                 } catch (AuthorNotLoggedInException e) {
                     //shoudlnt happen
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
+                } catch (SQLException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
 

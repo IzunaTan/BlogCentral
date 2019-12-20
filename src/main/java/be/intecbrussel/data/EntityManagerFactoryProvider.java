@@ -12,7 +12,4 @@ public class EntityManagerFactoryProvider {
         return entityManagerFactory.createEntityManager();
     }
 
-    public static void killEMFP(){
-        entityManagerFactory.close();
-    }
 }

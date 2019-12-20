@@ -1,6 +1,5 @@
 package be.intecbrussel.listeners;
 
-import be.intecbrussel.data.EntityManagerFactoryProvider;
 import be.intecbrussel.data.GenericMapper;
 import be.intecbrussel.model.entities.Author;
 import be.intecbrussel.model.entities.Blog;

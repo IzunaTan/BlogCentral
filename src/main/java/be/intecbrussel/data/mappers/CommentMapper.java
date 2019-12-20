@@ -33,7 +33,7 @@ public class CommentMapper extends GenericMapper {
         EntityTransaction et = em.getTransaction();
 
         et.begin();
-        Comment com = new Comment(em.find(new Author().getClass(), authorName), commentToAdd);
+        Comment com = new Comment(em.find(Author.class, authorName), commentToAdd);
         com = em.merge(com);
         addConnectionViaJDBC_BC(blogID, com.getId());
         et.commit();
@@ -55,7 +55,7 @@ public class CommentMapper extends GenericMapper {
         EntityTransaction et = em.getTransaction();
 
         et.begin();
-        Comment com = new Comment(em.find(new Author().getClass(), authorName), commentToAdd);
+        Comment com = new Comment(em.find(Author.class, authorName), commentToAdd);
         com = em.merge(com);
         addConnectionViaJDBC_CC(commentID, com.getId());
         et.commit();

@@ -43,81 +43,28 @@ public class Author implements EntityInterface {
         this.email = email;
     }
 
-    public Author setUsername(String username) {
-        this.username = username;
-        return this;
-    }
-
     public String getPassword() {
         return password;
     }
 
-    public Author setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
-        return this;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public Author setFirstName(String firstName) {
-        this.firstName = firstName;
-        return this;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Author setLastName(String lastName) {
-        this.lastName = lastName;
-        return this;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public Author setEmail(String email) {
-        this.email = email;
-        return this;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public Author setStreet(String street) {
+    public void setStreet(String street) {
         this.street = street;
-        return this;
     }
 
-    public int getHouseNumber() {
-        return houseNumber;
-    }
-
-    public Author setHouseNumber(int houseNumber) {
+    public void setHouseNumber(int houseNumber) {
         this.houseNumber = houseNumber;
-        return this;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public Author setCity(String city) {
+    public void setCity(String city) {
         this.city = city;
-        return this;
     }
 
-    public int getZipCode() {
-        return zipCode;
-    }
-
-    public Author setZipCode(int zipCode) {
+    public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
-        return this;
     }
 
     public Author() {
@@ -161,12 +108,6 @@ public class Author implements EntityInterface {
     @Override
     public Object getId() {
         return username;
-    }
-
-    @Override
-    public Object setId(String username) {
-        this.username = username;
-        return this;
     }
 
     public boolean checkPW(String plainTextPassword){

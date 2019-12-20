@@ -42,11 +42,6 @@ public class SessionController {
         session.setAttribute("Author", author);
     }
 
-    public static void logsOut(HttpSession session) {
-        session.setAttribute("isLoggedIn", false);
-        session.setAttribute("Author", null);
-    }
-
     public static Author getAuthor(HttpSession session) throws AuthorNotLoggedInException {
         if (isLoggedIn(session)) {
             return (Author) session.getAttribute("Author");
@@ -75,13 +70,6 @@ public class SessionController {
         if (lastPage == null)
             lastPage = "home";
         return lastPage;
-    }
-
-    public static String getCurrentPage(HttpSession session) {
-        String currentPage = (String) session.getAttribute("currentPage");
-        if (currentPage == null)
-            currentPage = "home";
-        return currentPage;
     }
 
     public static void updateTotalRegisters(HttpSession session){

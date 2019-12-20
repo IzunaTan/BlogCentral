@@ -5,7 +5,6 @@ import be.intecbrussel.data.mappers.CommentMapper;
 import be.intecbrussel.model.entities.Comment;
 import be.intecbrussel.tools.SessionController;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +15,7 @@ import java.io.IOException;
 @WebServlet(name = "deletecomment", value = "/deletecomment")
 public class DeleteCommentServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
         SessionController.addNewPageToSessionHistory(session, this.getServletName(), req.getQueryString());
         GenericMapper<Comment> cm = new CommentMapper();

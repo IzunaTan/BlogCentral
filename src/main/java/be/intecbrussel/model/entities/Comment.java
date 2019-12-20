@@ -1,8 +1,6 @@
 package be.intecbrussel.model.entities;
 
 import be.intecbrussel.model.EntityInterface;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.OnDelete;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -33,7 +31,7 @@ public class Comment implements EntityInterface {
     }
 
     public Comment addComments(Comment... comments){
-        Arrays.stream(comments).forEach(e -> this.comments.add(e));
+        this.comments.addAll(Arrays.asList(comments));
         return this;
     }
 
@@ -42,55 +40,16 @@ public class Comment implements EntityInterface {
         this.comments = new ArrayList<>();
     }
 
-    public Comment setId(int id) {
-        this.id = id;
-        return this;
-    }
-
-    public Comment setAuthor(Author author) {
+    public void setAuthor(Author author) {
         this.author = author;
-        return this;
-    }
-
-    public Comment setMessage(String message) {
-        this.message = message;
-        return this;
-    }
-
-    public Comment setLikeCount(int likeCount) {
-        this.likeCount = likeCount;
-        return this;
     }
 
     public List<Comment> getComments() {
         return comments;
     }
 
-    public Comment setComments(List<Comment> comments) {
-        this.comments = comments;
-        return this;
-    }
-
     public Object getId() {
         return id;
-    }
-
-    @Override
-    public Object setId(String id) {
-        this.id = Integer.parseInt(id);
-        return this;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public int getLikeCount() {
-        return likeCount;
     }
 
     // Copies all the attributes from an comment object to this comment object
